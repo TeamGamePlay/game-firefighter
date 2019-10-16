@@ -1,5 +1,8 @@
 extends KinematicBody2D
 
+# generic
+# movement and skills of firefighters
+
 #signal health_changed
 #signal dead
 
@@ -14,7 +17,7 @@ var can_shoot = true
 var alive = true
 
 func _ready():
-	# GunTimer.wait_time = gun_cooldown
+	$GunTimer.wait_time = gun_cooldown
 	pass
 	
 func _control(delta):

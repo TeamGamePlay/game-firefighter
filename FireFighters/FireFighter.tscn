@@ -1,12 +1,14 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://FireFighters/Fighter.gd" type="Script" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://gun/gun1.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 16.1877, 16.1853 )
 
 [node name="KinematicBody2D" type="KinematicBody2D"]
+collision_layer = 2
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
@@ -21,3 +23,13 @@ texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
+
+[node name="Hose" type="Sprite" parent="."]
+scale = Vector2( 1, 0.5 )
+texture = ExtResource( 3 )
+offset = Vector2( 10, 0 )
+
+[node name="Muzzle" type="Position2D" parent="Hose"]
+position = Vector2( 25, 0 )
+
+[node name="GunTimer" type="Timer" parent="."]

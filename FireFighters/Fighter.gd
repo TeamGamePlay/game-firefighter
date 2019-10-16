@@ -1,7 +1,7 @@
 extends "res://FireFighters/FireFighter.gd"
 
 func _control(delta):
-	#$Torret.look_at(global_mouse_position())
+	$Hose.look_at(get_global_mouse_position())
 	var rot_dir = 0
 	
 	if Input.is_action_pressed("ui_right"):
