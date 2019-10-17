@@ -16,3 +16,9 @@ func _control(delta):
 		velocity = Vector2(speed, 0).rotated(rotation)
 	if Input.is_action_pressed("ui_down"):
 		velocity = Vector2(-speed/2, 0).rotated(rotation)
+		
+	if Input.is_action_pressed("ui_accept"):
+		shoot()
+
+func _on_GunTimer_timeout():
+	can_shoot = true
