@@ -1,8 +1,35 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://levels/level_1/World_1.gd" type="Script" id=1]
 [ext_resource path="res://floor.tres" type="TileSet" id=2]
 [ext_resource path="res://FireFighters/FireFighter.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/circulo.png" type="Texture" id=4]
+
+[sub_resource type="Gradient" id=1]
+offsets = PoolRealArray( 0.0122378, 0.263986, 0.951049 )
+colors = PoolColorArray( 1, 1, 1, 1, 0.858589, 0.966857, 1, 0.731844, 0.472656, 0.876404, 1, 0 )
+
+[sub_resource type="GradientTexture" id=2]
+gradient = SubResource( 1 )
+
+[sub_resource type="Curve" id=3]
+_data = [ Vector2( 0.00428528, 0.3163 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=4]
+curve = SubResource( 3 )
+
+[sub_resource type="ParticlesMaterial" id=5]
+emission_shape = 1
+emission_sphere_radius = 5.41
+flag_disable_z = true
+spread = 0.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 103.45
+angular_velocity = 1.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale_curve = SubResource( 4 )
+color_ramp = SubResource( 2 )
 
 [node name="World_1" type="Node"]
 script = ExtResource( 1 )
@@ -14,6 +41,14 @@ format = 1
 tile_data = PoolIntArray( 196608, 1073741824, 0, 196609, 1073741824, 0, 196610, 1073741824, 0, 196611, 1073741824, 0, 196612, 1073741824, 0, 196613, 1073741824, 0, 196614, 1073741824, 0, 196615, 1073741824, 0, 196616, 1073741824, 0, 196617, 1073741824, 0, 196618, 1073741824, 0, 196619, 1073741824, 0, 196620, 1073741824, 0, 196621, 1073741824, 0, 196622, 1073741824, 0, 196623, 1073741824, 0, 196624, 1073741824, 0, 196625, 1073741824, 0, 196626, 1073741824, 0, 196627, 1073741824, 0, 196628, 1073741824, 0, 196629, 1073741824, 0, 196630, 1073741824, 0, 196631, 1073741824, 0, 196632, 1073741824, 0, 196633, 1073741824, 0, 196634, 1073741824, 0, 196635, 1073741824, 0, 196636, 1073741824, 0, 196637, 1073741824, 0, 196638, 1073741824, 0, 196639, 1073741824, 0, 262173, 1073741825, 0, 327709, 1073741825, 0, 393245, 1073741825, 0, 458781, 1073741825, 0, 524317, 1073741825, 0, 589853, 1073741825, 0, 655389, 1073741825, 0, 720925, 1073741825, 0, 786461, 1073741825, 0, 851997, 1073741825, 0, 917533, 1073741825, 0, 983069, 1, 0, 1048605, 1, 0, 1114141, 1, 0, 1179677, 1, 0, 1245213, 1, 0, 1310720, 0, 0, 1310721, 0, 0, 1310722, 0, 0, 1310723, 0, 0, 1310724, 0, 0, 1310725, 0, 0, 1310726, 0, 0, 1310727, 0, 0, 1310728, 0, 0, 1310729, 0, 0, 1310730, 0, 0, 1310731, 0, 0, 1310732, 0, 0, 1310733, 0, 0, 1310734, 0, 0, 1310735, 0, 0, 1310736, 0, 0, 1310737, 0, 0, 1310738, 0, 0, 1310739, 0, 0, 1310740, 0, 0, 1310741, 0, 0, 1310742, 0, 0, 1310743, 0, 0, 1310744, 0, 0, 1310745, 0, 0, 1310746, 0, 0, 1310747, 0, 0, 1310748, 0, 0, 1310749, 0, 0, 1310750, 0, 0, 1310751, 0, 0 )
 
 [node name="KinematicBody2D" parent="." instance=ExtResource( 3 )]
-position = Vector2( 80, 384 )
+position = Vector2( 163.6, 317.5 )
 gun_cooldown = 0.4
+
+[node name="Particles2D" type="Particles2D" parent="KinematicBody2D"]
+amount = 20
+lifetime = 2.0
+randomness = 0.11
+local_coords = false
+process_material = SubResource( 5 )
+texture = ExtResource( 4 )
 [connection signal="shoot" from="KinematicBody2D" to="." method="_on_Fighter_shoot"]
