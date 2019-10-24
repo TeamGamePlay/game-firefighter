@@ -1,5 +1,7 @@
 extends "res://FireFighters/FireFighter.gd"
 
+onready var ground_ray = get_node("RayCast2D")
+
 func _control(delta):
 	$Hose.look_at(get_global_mouse_position())
 	var rot_dir = 0

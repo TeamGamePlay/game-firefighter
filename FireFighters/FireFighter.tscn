@@ -35,4 +35,10 @@ offset = Vector2( 10, 0 )
 position = Vector2( 25, 0 )
 
 [node name="GunTimer" type="Timer" parent="."]
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2( 20, 0 )
+enabled = true
+cast_to = Vector2( 50, 0 )
+collision_mask = 5
 [connection signal="timeout" from="GunTimer" to="." method="_on_GunTimer_timeout"]
