@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://FireFighters/Fighter.gd" type="Script" id=1]
 [ext_resource path="res://gun/WaterFighter.tscn" type="PackedScene" id=2]
 [ext_resource path="res://icon.png" type="Texture" id=3]
 [ext_resource path="res://gun/gun1.png" type="Texture" id=4]
+[ext_resource path="res://Water.tscn" type="PackedScene" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 16.1877, 16.1853 )
@@ -41,4 +42,15 @@ position = Vector2( 20, 0 )
 enabled = true
 cast_to = Vector2( 50, 0 )
 collision_mask = 5
+collide_with_areas = true
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 32
+collision_mask = 32
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PoolVector2Array( 78.1298, -17.059, 78.1298, 14.7182, -2.56773, -0.752254 )
+
+[node name="Particles2D" parent="." instance=ExtResource( 5 )]
+emitting = false
 [connection signal="timeout" from="GunTimer" to="." method="_on_GunTimer_timeout"]
