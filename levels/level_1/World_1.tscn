@@ -23,5 +23,5 @@ position = Vector2( 856.901, 586.151 )
 [node name="Fire-3" parent="." instance=ExtResource( 3 )]
 position = Vector2( 862.601, 405.651 )
 
-[node name="KinematicBody2D" parent="." instance=ExtResource( 4 )]
+[node name="Player" parent="." instance=ExtResource( 4 )]
 position = Vector2( 213.99, 339.867 )
