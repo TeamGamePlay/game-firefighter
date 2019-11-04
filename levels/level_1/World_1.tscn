@@ -1,9 +1,12 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://levels/level_1/World_1.gd" type="Script" id=1]
 [ext_resource path="res://floor.tres" type="TileSet" id=2]
 [ext_resource path="res://FireFighters/fire-particles/Particles2D.tscn" type="PackedScene" id=3]
-[ext_resource path="res://FireFighters/FireFighter.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Combustible/Combustible-1.tscn" type="PackedScene" id=4]
+[ext_resource path="res://levels/level_1/Control.gd" type="Script" id=5]
+[ext_resource path="res://theme/demo_theme.tres" type="Theme" id=6]
+[ext_resource path="res://FireFighters/FireFighter.tscn" type="PackedScene" id=7]
 
 [node name="World_1" type="Node"]
 script = ExtResource( 1 )
@@ -23,5 +26,36 @@ position = Vector2( 856.901, 586.151 )
 [node name="Fire-3" parent="." instance=ExtResource( 3 )]
 position = Vector2( 862.601, 405.651 )
 
-[node name="Player" parent="." instance=ExtResource( 4 )]
+[node name="Combustible-1" parent="." instance=ExtResource( 4 )]
+position = Vector2( 794.499, 485.021 )
+
+[node name="Combustible-2" parent="." instance=ExtResource( 4 )]
+position = Vector2( 780.056, 392.473 )
+
+[node name="Combustible-3" parent="." instance=ExtResource( 4 )]
+position = Vector2( 840.674, 307.728 )
+
+[node name="Combustible-4" parent="." instance=ExtResource( 4 )]
+position = Vector2( 776.209, 584.706 )
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="UI"]
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 5 )
+
+[node name="score" type="Label" parent="UI/Control"]
+margin_left = 24.0
+margin_top = 146.05
+margin_right = 101.0
+margin_bottom = 187.05
+theme = ExtResource( 6 )
+custom_colors/font_color = Color( 0.270588, 0.972549, 0.207843, 1 )
+custom_colors/font_color_shadow = Color( 0.815686, 0.827451, 0.796078, 1 )
+text = "Oxigeno"
+align = 1
+valign = 1
+
+[node name="Player" parent="." instance=ExtResource( 7 )]
 position = Vector2( 213.99, 339.867 )

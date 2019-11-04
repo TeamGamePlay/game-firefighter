@@ -1,7 +1,10 @@
 extends Node
 
+onready var player = $Player
+onready var canvas = $UI/Control
+
 func _ready():
-	pass # Replace with function body.
+	canvas.player = player
 
 func _on_Fighter_shoot(water, _position, _direction):
 	var b = water.instance()

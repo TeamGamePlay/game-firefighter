@@ -15,5 +15,6 @@ func _ready():
 
 func _on_Humo_body_entered(body):
 	if body.get_name() == "Player":
-		pass
 		#global.decrementarOxigeno()
+		print("pepepepepe")
+		global._on_smoke()
