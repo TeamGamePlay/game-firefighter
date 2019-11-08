@@ -1,6 +1,7 @@
 extends "res://FireFighters/FireFighter.gd"
 
 onready var ray = get_node("RayCast2D")
+onready var area = get_node("AreaPlayer")
 
 func _control(delta):
 	
@@ -26,3 +27,11 @@ func _control(delta):
 
 func _on_GunTimer_timeout():
 	can_shoot = true
+
+
+func _on_EnvTimer_timeout():
+	var areas = area.get_overlapping_areas()
+	for area in areas:
+		if area.get_name() == "Humo":
+			print("Pierdo oxigeno!")
+			global._on_smoke()

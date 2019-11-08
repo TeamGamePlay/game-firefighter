@@ -5,4 +5,5 @@ func _ready():
 	pass 
 	
 func _on_Area2D_area_entered(area):
-	get_parent().queue_free()
+	if area.get_name() == "Area2D":
+	   get_parent().queue_free()
