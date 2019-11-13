@@ -16,15 +16,19 @@ func marcarExpancion():
 	# me da todas las celdas para recorrer
 	for cell in get_used_cells():  
 		var cellNextType = get_cellv(cell)
-		expandirMarca(cell, cellNextType)
+		dejarMarca(cell, cellNextType)
 		
-func expandirMarca(cell, cellNextType):
+func dejarMarca(cell, cellNextType):
 	match cellNextType:
-		CellType.FUEGO: marcarSiInflamable(cell)
-		CellType.COMBUSTIBLE: marcarSICombustible(cell)
+		CellType.FUEGO: marcar(cell)
+		#CellType.COMBUSTIBLE: marcarSICombustible(cell)
 
 # deja una marcar si las celdas vecinas
 # son inflamable o combustibles
+func marcar(cell):
+	marcarSiInflamable(cell)
+	marcarSICombustible(cell)
+
 func marcarSiInflamable(cell):
 	var cellNorte = Vector2(cell.x, cell.y - 1)
 	var cellSur = Vector2(cell.x, cell.y + 1)
@@ -83,9 +87,9 @@ func crearFuego(cell):
 	
 	#newFuego.position.x = 655
 	#newFuego.position.y = 241
-	print(cell)
-	print(newFuego.position)
-	print(get_parent().name)
+	#print(cell)
+	#print(newFuego.position)
+	#print(get_parent().name)
 	set_cellv(cell,CellType.FUEGO)
 	#get_parent().add_child(newFuego)
 	#get_parent().crear(newFuego)

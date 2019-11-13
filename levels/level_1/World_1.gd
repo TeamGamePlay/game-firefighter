@@ -9,8 +9,8 @@ onready var tile = $TileMap
 func _ready():
 	canvas.player = player
 	tile.world = self
-	print(player.name)
-	print(canvas.name)
+#	print(player.name)
+#	print(canvas.name)
 	
 func _on_Fighter_shoot(water, _position, _direction):
 	var b = water.instance()
