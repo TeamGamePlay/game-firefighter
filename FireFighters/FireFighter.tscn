@@ -2,34 +2,33 @@
 
 [ext_resource path="res://FireFighters/Fighter.gd" type="Script" id=1]
 [ext_resource path="res://gun/WaterFighter.tscn" type="PackedScene" id=2]
-[ext_resource path="res://icon.png" type="Texture" id=3]
+[ext_resource path="res://assets/bomberman.png" type="Texture" id=3]
 [ext_resource path="res://gun/gun1.png" type="Texture" id=4]
 [ext_resource path="res://Water.tscn" type="PackedScene" id=5]
 [ext_resource path="res://FireFighters/AreaPlayer.gd" type="Script" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 16.1877, 16.1853 )
+extents = Vector2( 35.5242, 42.4579 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 16.2261, 16.6228 )
+extents = Vector2( 34.4962, 42.7565 )
 
 [node name="Player" type="KinematicBody2D"]
 position = Vector2( 0, 1.79244 )
 collision_layer = 2
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_group_": true
-}
 Water = ExtResource( 2 )
 speed = 200
 rotation_speed = 1.0
 health = 200
 
 [node name="Sprite" type="Sprite" parent="."]
-scale = Vector2( 0.5, 0.5 )
+position = Vector2( -26.4103, 78.429 )
+scale = Vector2( 0.303793, 0.303163 )
 texture = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -15.6056, 2.92606 )
 shape = SubResource( 1 )
 
 [node name="Hose" type="Sprite" parent="."]
@@ -65,6 +64,7 @@ emitting = false
 script = ExtResource( 6 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AreaPlayer"]
+position = Vector2( -15.118, 2.43838 )
 shape = SubResource( 2 )
 
 [node name="EnvTimer" type="Timer" parent="."]
