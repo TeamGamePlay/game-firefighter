@@ -9,7 +9,7 @@
 extents = Vector2( 16.3119, 16.0986 )
 
 [resource]
-0/name = "Sprite"
+0/name = "marca"
 0/texture = ExtResource( 1 )
 0/tex_offset = Vector2( 0, 0 )
 0/modulate = Color( 1, 1, 1, 1 )
@@ -25,7 +25,7 @@ extents = Vector2( 16.3119, 16.0986 )
 "shape_transform": Transform2D( 1, 0, 0, 1, 16, 16 )
 } ]
 0/z_index = 0
-1/name = "Sprite2"
+1/name = "pared"
 1/texture = ExtResource( 1 )
 1/tex_offset = Vector2( 0, 0 )
 1/modulate = Color( 1, 1, 1, 1 )
