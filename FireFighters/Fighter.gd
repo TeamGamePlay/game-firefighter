@@ -3,6 +3,8 @@ extends "res://FireFighters/FireFighter.gd"
 onready var ray = get_node("RayCast2D")
 onready var area = get_node("AreaPlayer")
 
+var oxigeno
+
 func _control(delta):
 	
 	$Hose.look_at(get_global_mouse_position())
@@ -28,10 +30,23 @@ func _control(delta):
 func _on_GunTimer_timeout():
 	can_shoot = true
 
-
+func quitaOxigeno(actOx):
+	oxigeno = actOx
+	
 func _on_EnvTimer_timeout():
 	var areas = area.get_overlapping_areas()
 	for area in areas:
 		if area.get_name() == "Humo":
-			print("Pierdo oxigeno!")
+			# toma los valores de los coleres que tiene actualmente
+			var r = $Sprite.get_modulate().r
+			var g = $Sprite.get_modulate().g - 0.15
+			var b = $Sprite.get_modulate().b
+			print(g)
 			global._on_smoke()
+			if(oxigeno <= 0):
+				# aca cambien sprint por le sprint de la cara para que lo cambie.
+				# pone azul cuando se queda sin oxigeno
+				$Sprite.set_modulate(Color( 0, 0, 0.55, 1 ))
+			else:# aca cambien sprint por le sprint de la cara para que lo cambie
+				$Sprite.set_modulate(Color(r,g,b))
+			print("Pierdo oxigeno!")	
