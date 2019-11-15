@@ -22,8 +22,8 @@ func _control(delta):
 		velocity = Vector2(-speed/2, 0).rotated(rotation)
 		
 	var is_firing = Input.is_action_pressed("ui_accept")
-	$Particles2D.emitting = is_firing
-	$Area2D/CollisionPolygon2D.disabled = not is_firing
+	$Matafuego/Particles2D.emitting = is_firing
+	$Matafuego/Area2D/CollisionPolygon2D.disabled = not is_firing
 
 func _on_GunTimer_timeout():
 	can_shoot = true

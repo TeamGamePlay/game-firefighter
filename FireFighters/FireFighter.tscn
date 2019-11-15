@@ -4,8 +4,8 @@
 [ext_resource path="res://gun/WaterFighter.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/bomberman.png" type="Texture" id=3]
 [ext_resource path="res://gun/gun1.png" type="Texture" id=4]
-[ext_resource path="res://Water.tscn" type="PackedScene" id=5]
-[ext_resource path="res://FireFighters/AreaPlayer.gd" type="Script" id=6]
+[ext_resource path="res://FireFighters/AreaPlayer.gd" type="Script" id=5]
+[ext_resource path="res://Matafuego.tscn" type="PackedScene" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 35.5242, 42.4579 )
@@ -49,19 +49,8 @@ cast_to = Vector2( 50, 0 )
 collision_mask = 5
 collide_with_areas = true
 
-[node name="Area2D" type="Area2D" parent="."]
-editor/display_folded = true
-collision_layer = 32
-collision_mask = 32
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
-polygon = PoolVector2Array( 78.1298, -17.059, 78.1298, 14.7182, -2.56773, -0.752254 )
-
-[node name="Particles2D" parent="." instance=ExtResource( 5 )]
-emitting = false
-
 [node name="AreaPlayer" type="Area2D" parent="."]
-script = ExtResource( 6 )
+script = ExtResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AreaPlayer"]
 position = Vector2( -15.118, 2.43838 )
@@ -70,6 +59,8 @@ shape = SubResource( 2 )
 [node name="EnvTimer" type="Timer" parent="."]
 wait_time = 5.0
 autostart = true
+
+[node name="Matafuego" parent="." instance=ExtResource( 6 )]
 [connection signal="timeout" from="GunTimer" to="." method="_on_GunTimer_timeout"]
 [connection signal="area_entered" from="AreaPlayer" to="AreaPlayer" method="_on_AreaPlayer_area_entered"]
 [connection signal="timeout" from="EnvTimer" to="." method="_on_EnvTimer_timeout"]
