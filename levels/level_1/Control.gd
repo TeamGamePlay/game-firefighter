@@ -11,4 +11,5 @@ func _ready():
 	
 func smoke(s):
 	oxigeno -= 20
+	player.quitaOxigeno(oxigeno)
 	$score.text = "Oxigeno: " + str(oxigeno)

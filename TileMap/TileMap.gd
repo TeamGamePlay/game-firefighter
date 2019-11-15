@@ -1,6 +1,6 @@
 extends TileMap
 
-enum CellType {MARCA,PARED,INFLAMABLE,PISO,COMBUSTIBLE,FUEGO}
+enum CellType {PISO,PARED,NOINFLAMABLE,MARCA,COMBUSTIBLE,FUEGO}
 
 onready var fuego = preload("res://FireFighters/fire-particles/Particles2D.tscn")
 
@@ -46,7 +46,7 @@ func marcarSiInflamable(cell):
 	
 func marcarInflamable(cell, cellType):
 	match cellType:
-		CellType.INFLAMABLE: set_cellv(cell,CellType.MARCA)   
+		CellType.PISO: set_cellv(cell,CellType.MARCA)   
 
 func marcarSICombustible(cell):
 	var cellNorte = Vector2(cell.x, cell.y - 1)
@@ -82,8 +82,8 @@ func agregarFuego(cell, cellType):
 	
 func crearFuego(cell):
 	var newFuego = fuego.instance()
-	newFuego.position.x = 16 + 32 - cell.x
-	newFuego.position.y = 16 + 32 * cell.y
+	newFuego.global_position = map_to_world(cell)#16 + (32 * cell.x)
+	#newFuego.global_position.y = m#16 + (32 * cell.y)
 	
 	#newFuego.position.x = 655
 	#newFuego.position.y = 241
@@ -91,7 +91,8 @@ func crearFuego(cell):
 	#print(newFuego.position)
 	#print(get_parent().name)
 	set_cellv(cell,CellType.FUEGO)
-	#get_parent().add_child(newFuego)
+	
+	add_child(newFuego)
 	#get_parent().crear(newFuego)
 	#world.add_children(newFuego)
 	
