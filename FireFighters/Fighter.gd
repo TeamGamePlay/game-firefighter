@@ -38,15 +38,15 @@ func _on_EnvTimer_timeout():
 	for area in areas:
 		if area.get_name() == "Humo":
 			# toma los valores de los coleres que tiene actualmente
-			var r = $Sprite.get_modulate().r
-			var g = $Sprite.get_modulate().g - 0.15
-			var b = $Sprite.get_modulate().b
+			var r = $CaraBombero.get_modulate().r
+			var g = $CaraBombero.get_modulate().g - 0.15
+			var b = $CaraBombero.get_modulate().b
 			print(g)
 			global._on_smoke()
 			if(oxigeno <= 0):
 				# aca cambien sprint por le sprint de la cara para que lo cambie.
 				# pone azul cuando se queda sin oxigeno
-				$Sprite.set_modulate(Color( 0, 0, 0.55, 1 ))
+				$CaraBombero.set_modulate(Color( 0, 0, 0.55, 1 ))
 			else:# aca cambien sprint por le sprint de la cara para que lo cambie
-				$Sprite.set_modulate(Color(r,g,b))
+				$CaraBombero.set_modulate(Color(r,g,b))
 			print("Pierdo oxigeno!")	
