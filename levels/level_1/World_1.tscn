@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://levels/level_1/World_1.gd" type="Script" id=1]
 [ext_resource path="res://TileMap/TileMap.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://levels/level_1/Control.gd" type="Script" id=4]
 [ext_resource path="res://theme/demo_theme.tres" type="Theme" id=5]
 [ext_resource path="res://FireFighters/FireFighter.tscn" type="PackedScene" id=6]
+[ext_resource path="res://WaterRechange.tscn" type="PackedScene" id=7]
 
 [node name="World_1" type="Node"]
 script = ExtResource( 1 )
@@ -43,3 +44,6 @@ valign = 1
 
 [node name="Player" parent="." instance=ExtResource( 6 )]
 position = Vector2( 213.99, 339.867 )
+
+[node name="AreaBombaDeAgua" parent="." instance=ExtResource( 7 )]
+position = Vector2( 126.515, 576.8 )

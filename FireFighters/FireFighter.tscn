@@ -1,11 +1,12 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://FireFighters/Fighter.gd" type="Script" id=1]
 [ext_resource path="res://gun/WaterFighter.tscn" type="PackedScene" id=2]
-[ext_resource path="res://assets/bomberman.png" type="Texture" id=3]
-[ext_resource path="res://gun/gun1.png" type="Texture" id=4]
-[ext_resource path="res://FireFighters/AreaPlayer.gd" type="Script" id=5]
-[ext_resource path="res://Matafuego.tscn" type="PackedScene" id=6]
+[ext_resource path="res://assets/bomberoSinCara.png" type="Texture" id=3]
+[ext_resource path="res://assets/caraBombero.png" type="Texture" id=4]
+[ext_resource path="res://gun/gun1.png" type="Texture" id=5]
+[ext_resource path="res://FireFighters/AreaPlayer.gd" type="Script" id=6]
+[ext_resource path="res://Matafuego.tscn" type="PackedScene" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 35.5242, 42.4579 )
@@ -22,19 +23,24 @@ speed = 200
 rotation_speed = 1.0
 health = 200
 
-[node name="Sprite" type="Sprite" parent="."]
-position = Vector2( -26.4103, 78.429 )
-scale = Vector2( 0.303793, 0.303163 )
+[node name="CuerpoBombero" type="Sprite" parent="."]
+position = Vector2( -16.7832, 2.99537 )
+scale = Vector2( 0.290756, 0.297332 )
 texture = ExtResource( 3 )
 
+[node name="CaraBombero" type="Sprite" parent="."]
+position = Vector2( -15.8342, -11.2163 )
+scale = Vector2( 0.283892, 0.302533 )
+texture = ExtResource( 4 )
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( -15.6056, 2.92606 )
+position = Vector2( -16.7432, 2.92606 )
 shape = SubResource( 1 )
 
 [node name="Hose" type="Sprite" parent="."]
 editor/display_folded = true
 scale = Vector2( 1, 0.5 )
-texture = ExtResource( 4 )
+texture = ExtResource( 5 )
 offset = Vector2( 10, 0 )
 
 [node name="Muzzle" type="Position2D" parent="Hose"]
@@ -50,7 +56,7 @@ collision_mask = 5
 collide_with_areas = true
 
 [node name="AreaPlayer" type="Area2D" parent="."]
-script = ExtResource( 5 )
+script = ExtResource( 6 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AreaPlayer"]
 position = Vector2( -15.118, 2.43838 )
@@ -60,7 +66,7 @@ shape = SubResource( 2 )
 wait_time = 5.0
 autostart = true
 
-[node name="Matafuego" parent="." instance=ExtResource( 6 )]
+[node name="Matafuego" parent="." instance=ExtResource( 7 )]
 [connection signal="timeout" from="GunTimer" to="." method="_on_GunTimer_timeout"]
 [connection signal="area_entered" from="AreaPlayer" to="AreaPlayer" method="_on_AreaPlayer_area_entered"]
 [connection signal="timeout" from="EnvTimer" to="." method="_on_EnvTimer_timeout"]
