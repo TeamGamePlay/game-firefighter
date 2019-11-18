@@ -1,0 +1,48 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://levels/level_1/Control.gd" type="Script" id=1]
+[ext_resource path="res://theme/demo_theme.tres" type="Theme" id=2]
+
+[node name="UI" type="CanvasLayer"]
+
+[node name="Control" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 1 )
+
+[node name="score" type="Label" parent="Control"]
+margin_left = 7.32982
+margin_top = 131.72
+margin_right = 121.33
+margin_bottom = 172.72
+theme = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0.815686, 0.827451, 0.796078, 1 )
+text = "Oxigeno"
+align = 1
+valign = 1
+
+[node name="vida" type="Label" parent="Control"]
+margin_left = 11.0
+margin_top = 180.0
+margin_right = 118.0
+margin_bottom = 211.0
+theme = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0.937255, 0.909804, 0.909804, 1 )
+text = "Vida"
+align = 1
+valign = 1
+
+[node name="agua" type="Label" parent="Control"]
+margin_left = 301.737
+margin_top = 138.421
+margin_right = 374.737
+margin_bottom = 173.421
+theme = ExtResource( 2 )
+custom_colors/font_color = Color( 0.0156863, 0.00784314, 0.00784314, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0.980392, 0.972549, 0.972549, 1 )
+text = "Agua"
+align = 1
+valign = 1

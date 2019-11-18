@@ -9,10 +9,10 @@
 [ext_resource path="res://Matafuego.tscn" type="PackedScene" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 35.5242, 42.4579 )
+extents = Vector2( 16.1953, 27.5163 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 34.4962, 42.7565 )
+extents = Vector2( 16.019, 27.1954 )
 
 [node name="Player" type="KinematicBody2D"]
 position = Vector2( 0, 1.79244 )
@@ -24,17 +24,17 @@ rotation_speed = 1.0
 health = 200
 
 [node name="CuerpoBombero" type="Sprite" parent="."]
-position = Vector2( -16.7832, 2.99537 )
-scale = Vector2( 0.290756, 0.297332 )
+position = Vector2( -7.15249, -7.64746 )
+scale = Vector2( 0.209505, 0.187825 )
 texture = ExtResource( 3 )
 
 [node name="CaraBombero" type="Sprite" parent="."]
-position = Vector2( -15.8342, -11.2163 )
-scale = Vector2( 0.283892, 0.302533 )
+position = Vector2( -6.63645, -16.7057 )
+scale = Vector2( 0.206128, 0.197175 )
 texture = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( -16.7432, 2.92606 )
+position = Vector2( -7.19777, -7.20127 )
 shape = SubResource( 1 )
 
 [node name="Hose" type="Sprite" parent="."]
@@ -59,7 +59,7 @@ collide_with_areas = true
 script = ExtResource( 6 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AreaPlayer"]
-position = Vector2( -15.118, 2.43838 )
+position = Vector2( -7.47334, -7.04645 )
 shape = SubResource( 2 )
 
 [node name="EnvTimer" type="Timer" parent="."]
@@ -69,4 +69,5 @@ autostart = true
 [node name="Matafuego" parent="." instance=ExtResource( 7 )]
 [connection signal="timeout" from="GunTimer" to="." method="_on_GunTimer_timeout"]
 [connection signal="area_entered" from="AreaPlayer" to="AreaPlayer" method="_on_AreaPlayer_area_entered"]
+[connection signal="timeout" from="EnvTimer" to="." method="_on_EnvTimer2_timeout"]
 [connection signal="timeout" from="EnvTimer" to="." method="_on_EnvTimer_timeout"]
