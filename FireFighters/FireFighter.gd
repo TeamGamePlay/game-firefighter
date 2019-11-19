@@ -17,8 +17,11 @@ var velocity = Vector2()
 var can_shoot = true
 var alive = true
 
+var puedeMover
+
 func _ready():
 	$GunTimer.wait_time = gun_cooldown
+	puedeMover = true
 	
 func _control(delta):
 	pass

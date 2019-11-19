@@ -4,6 +4,7 @@ extends Node
 onready var player = $Player
 onready var canvas = $UI/Control
 onready var matafuego = $Player/Matafuego
+var world
 
 func _ready():
 	canvas.player = player
