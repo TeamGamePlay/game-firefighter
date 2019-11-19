@@ -33,6 +33,10 @@ func _control(delta):
 		global._on_water()
 		print("Aguaaaa!!!")
 
+func desactivarMatafuego():
+	$Matafuego/Particles2D.emitting = false
+	$Matafuego/Area2D/CollisionPolygon2D.disabled = true
+
 func _on_GunTimer_timeout():
 	can_shoot = true
 

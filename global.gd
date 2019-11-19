@@ -5,12 +5,14 @@ var vida = 0
 onready var barraAgua = get_node("LevelWater")
 onready var barraVida = get_node("LevelLife")
 
+
 signal smoke
 signal fire
 signal water
 signal apagarF
 signal reset
 signal fire2
+signal recharge
 
 func _ready():
 	pass # Replace with function body.
@@ -32,4 +34,7 @@ func apagar_fuego(pos):
 
 func _on_reset():
 	emit_signal("reset")
+	
+func _on_recharge_water():
+	emit_signal("recharge", barraAgua)
 
