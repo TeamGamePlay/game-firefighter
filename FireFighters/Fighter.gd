@@ -75,6 +75,7 @@ func _on_EnvTimer2_timeout():
 			var g2 = $CaraBombero.get_modulate().g - 0.15
 			var b2 = $CaraBombero.get_modulate().b
 			global._on_fire()
+			global._on_fire2()
 			if(vida <= 0):
 				$CaraBombero.set_modulate(Color(131, 52, 157, 255))
 				puedeMover = false

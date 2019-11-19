@@ -69,10 +69,10 @@ custom_styles/bg = SubResource( 2 )
 value = 100.0
 
 [node name="LevelLife" type="ProgressBar" parent="Control"]
-margin_left = 33.3682
-margin_top = 180.737
-margin_right = 181.368
-margin_bottom = 206.737
+margin_left = 33.0
+margin_top = 181.0
+margin_right = 175.0
+margin_bottom = 207.0
 custom_styles/fg = SubResource( 3 )
 custom_styles/bg = SubResource( 4 )
 max_value = 300.0
