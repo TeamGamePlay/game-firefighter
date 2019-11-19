@@ -8,6 +8,7 @@ signal smoke
 signal fire
 signal water
 signal apagarF
+signal reset
 
 func _ready():
 	pass # Replace with function body.
@@ -23,3 +24,6 @@ func _on_water():
 
 func apagar_fuego(pos):
 	emit_signal("apagarF", pos)
+
+func _on_reset():
+	emit_signal("reset")
