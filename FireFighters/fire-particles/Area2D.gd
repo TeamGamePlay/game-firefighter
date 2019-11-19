@@ -6,4 +6,5 @@ func _ready():
 	
 func _on_Area2D_area_entered(area):
 	if area.get_name() == "Area2D":
-	   get_parent().queue_free()
+		global.apagar_fuego(global_position)
+		get_parent().queue_free()

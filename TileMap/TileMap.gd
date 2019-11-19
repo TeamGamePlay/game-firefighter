@@ -7,10 +7,7 @@ onready var fuego = preload("res://FireFighters/fire-particles/Particles2D.tscn"
 var world
 
 func _ready():
-	#marcarExpancion()
-	#expandirFuego()
-	#crearFuegos()
-	pass
+	global.connect("apagarF", self, "apagarFuego")
 	
 func marcarExpancion():
 	# me da todas las celdas para recorrer
@@ -82,22 +79,14 @@ func agregarFuego(cell, cellType):
 	
 func crearFuego(cell):
 	var newFuego = fuego.instance()
-	newFuego.global_position = map_to_world(cell)#16 + (32 * cell.x)
-	#newFuego.global_position.y = m#16 + (32 * cell.y)
-	
-	#newFuego.position.x = 655
-	#newFuego.position.y = 241
-	#print(cell)
-	#print(newFuego.position)
-	#print(get_parent().name)
+	newFuego.global_position = map_to_world(cell)
 	set_cellv(cell,CellType.FUEGO)
-	
 	add_child(newFuego)
-	#get_parent().crear(newFuego)
-	#world.add_children(newFuego)
 	
-
 func _on_Timer_timeout():
 	marcarExpancion()
 	expandirFuego()
-	pass
+	
+func apagarFuego(posFuego):
+	var cell = world_to_map(posFuego)
+	set_cellv(cell,CellType.PISO)

@@ -7,6 +7,7 @@ var agua = 0
 signal smoke
 signal fire
 signal water
+signal apagarF
 
 func _ready():
 	pass # Replace with function body.
@@ -19,3 +20,6 @@ func _on_fire():
 	
 func _on_water():
 	emit_signal("water", agua)
+
+func apagar_fuego(pos):
+	emit_signal("apagarF", pos)
