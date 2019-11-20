@@ -9,10 +9,10 @@ bg_color = Color( 0.0588235, 0.4, 0.890196, 1 )
 [sub_resource type="StyleBoxFlat" id=2]
 bg_color = Color( 0.0313726, 0.427451, 0.188235, 1 )
 
-[sub_resource type="StyleBoxFlat" id=3]
+[sub_resource type="StyleBoxFlat" id=4]
 bg_color = Color( 0.137255, 0.6, 0.278431, 1 )
 
-[sub_resource type="StyleBoxFlat" id=4]
+[sub_resource type="StyleBoxFlat" id=5]
 bg_color = Color( 0.847059, 0.188235, 0.0509804, 1 )
 
 [node name="UI" type="CanvasLayer"]
@@ -28,7 +28,7 @@ margin_top = 61.1936
 margin_right = 137.12
 margin_bottom = 102.194
 theme = ExtResource( 2 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 0.952941, 0.109804, 0.109804, 1 )
 custom_colors/font_color_shadow = Color( 0.815686, 0.827451, 0.796078, 1 )
 text = "Oxigeno"
 align = 1
@@ -40,8 +40,8 @@ margin_top = 138.947
 margin_right = 161.158
 margin_bottom = 173.947
 theme = ExtResource( 2 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_colors/font_color_shadow = Color( 0.937255, 0.909804, 0.909804, 1 )
+custom_colors/font_color = Color( 0.270588, 0.976471, 0.313726, 1 )
+custom_colors/font_color_shadow = Color( 0.933333, 0.933333, 0.933333, 1 )
 text = "Vida"
 align = 1
 valign = 1
@@ -52,7 +52,7 @@ margin_top = 139.842
 margin_right = 335.0
 margin_bottom = 174.842
 theme = ExtResource( 2 )
-custom_colors/font_color = Color( 0.0156863, 0.00784314, 0.00784314, 1 )
+custom_colors/font_color = Color( 0.470588, 0.588235, 0.945098, 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 custom_colors/font_color_shadow = Color( 0.980392, 0.972549, 0.972549, 1 )
 text = "Agua"
@@ -64,16 +64,19 @@ margin_left = 226.0
 margin_top = 182.0
 margin_right = 374.0
 margin_bottom = 207.0
+theme = ExtResource( 2 )
 custom_styles/fg = SubResource( 1 )
 custom_styles/bg = SubResource( 2 )
 value = 100.0
 
 [node name="LevelLife" type="ProgressBar" parent="Control"]
+anchor_right = 1.0
 margin_left = 33.0
 margin_top = 181.0
-margin_right = 175.0
+margin_right = 135.0
 margin_bottom = 207.0
-custom_styles/fg = SubResource( 3 )
-custom_styles/bg = SubResource( 4 )
+theme = ExtResource( 2 )
+custom_styles/fg = SubResource( 4 )
+custom_styles/bg = SubResource( 5 )
 max_value = 300.0
 value = 300.0
