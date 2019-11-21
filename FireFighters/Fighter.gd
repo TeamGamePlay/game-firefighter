@@ -4,13 +4,56 @@ onready var gameOver = preload("res://Label/GameOver.tscn")
 
 onready var ray = get_node("RayCast2D")
 onready var area = get_node("AreaPlayer")
-
+enum STATE {
+	RUN,
+	IDLE,
+	# GETTING_DAMAGE
+	#
+	DEAD
+}
 var oxigeno
 var vida
+var next_state = STATE.IDLE
+var state = STATE.IDLE
+
+func _physics_process_2(delta):
+	if next_state != state:
+		_change_state()
+		
+	_run_state()	
+
+func _change_state():
+	# Limpio el state viejo
+	match state:
+		STATE.RUN:
+			pass
+		STATE.IDLE:
+			pass
+		STATE.DEAD:
+			pass
+			
+	# Inicializo el state nuevo
+	match next_state:
+		STATE.RUN:
+			$AnimationPlayer.play("caminar")
+		STATE.IDLE:
+			pass
+		STATE.DEAD:
+			pass					
+		
+
+func _run_state():
+	match state:
+		STATE.RUN:
+			pass
+		STATE.IDLE:
+			pass
+		STATE.DEAD:
+			pass		
 
 func _control(delta):
 	
-	$Hose.look_at(get_global_mouse_position())
+	self.look_at(get_global_mouse_position())
 	var rot_dir = 0
 	
 	if Input.is_action_pressed("ui_right") and puedeMover:

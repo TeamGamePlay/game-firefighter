@@ -5,7 +5,7 @@ onready var canvas = $UI/Control
 onready var matafuego = $Player/Matafuego
 onready var tile = $TileMap
 
-onready var sigLevel #= preload("res://levels/level_3/World_3.tscn")
+onready var sigLevel = preload("res://levels/level_3/World_3.tscn")
 onready var ganaste = preload("res://Label/Ganaste.tscn")
 onready var sigNivel = preload("res://Label/SiguienteNivel.tscn")
 

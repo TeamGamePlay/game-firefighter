@@ -1,18 +1,35 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://FireFighters/Fighter.gd" type="Script" id=1]
 [ext_resource path="res://gun/WaterFighter.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/bomberoSinCara.png" type="Texture" id=3]
 [ext_resource path="res://assets/caraBombero.png" type="Texture" id=4]
-[ext_resource path="res://gun/gun1.png" type="Texture" id=5]
-[ext_resource path="res://FireFighters/AreaPlayer.gd" type="Script" id=6]
-[ext_resource path="res://Matafuego.tscn" type="PackedScene" id=7]
+[ext_resource path="res://assets/mascara.png" type="Texture" id=5]
+[ext_resource path="res://gun/gun1.png" type="Texture" id=6]
+[ext_resource path="res://FireFighters/AreaPlayer.gd" type="Script" id=7]
+[ext_resource path="res://Matafuego.tscn" type="PackedScene" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 16.1953, 27.5163 )
+extents = Vector2( 18.2078, 29.8271 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 16.019, 27.1954 )
+extents = Vector2( 18.2199, 29.4549 )
+
+[sub_resource type="Animation" id=3]
+resource_name = "caminar"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("CuerpoBombero:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3, 0.8, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.238261, 0.206228 ), Vector2( 0.2, 0.27 ), Vector2( 0.25, 0.2 ), Vector2( 0.238261, 0.206228 ) ]
+}
 
 [node name="Player" type="KinematicBody2D"]
 position = Vector2( 0, 1.79244 )
@@ -24,23 +41,28 @@ rotation_speed = 1.0
 health = 200
 
 [node name="CuerpoBombero" type="Sprite" parent="."]
-position = Vector2( -7.15249, -7.64746 )
-scale = Vector2( 0.209505, 0.187825 )
+position = Vector2( -9.39547, -10.1963 )
+scale = Vector2( 0.214434, 0.245942 )
 texture = ExtResource( 3 )
 
 [node name="CaraBombero" type="Sprite" parent="."]
-position = Vector2( -6.63645, -16.7057 )
-scale = Vector2( 0.206128, 0.197175 )
+position = Vector2( -9.59311, -18.235 )
+scale = Vector2( 0.262445, 0.27364 )
 texture = ExtResource( 4 )
 
+[node name="mascara" type="Sprite" parent="."]
+position = Vector2( -9.939, -17.9891 )
+scale = Vector2( 0.0334158, 0.0474441 )
+texture = ExtResource( 5 )
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( -7.19777, -7.20127 )
+position = Vector2( -9.56946, -9.57295 )
 shape = SubResource( 1 )
 
 [node name="Hose" type="Sprite" parent="."]
 editor/display_folded = true
 scale = Vector2( 1, 0.5 )
-texture = ExtResource( 5 )
+texture = ExtResource( 6 )
 offset = Vector2( 10, 0 )
 
 [node name="Muzzle" type="Position2D" parent="Hose"]
@@ -56,17 +78,21 @@ collision_mask = 5
 collide_with_areas = true
 
 [node name="AreaPlayer" type="Area2D" parent="."]
-script = ExtResource( 6 )
+script = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AreaPlayer"]
-position = Vector2( -7.47334, -7.04645 )
+position = Vector2( -9.58151, -9.68166 )
 shape = SubResource( 2 )
 
 [node name="EnvTimer" type="Timer" parent="."]
 wait_time = 5.0
 autostart = true
 
-[node name="Matafuego" parent="." instance=ExtResource( 7 )]
+[node name="Matafuego" parent="." instance=ExtResource( 8 )]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "caminar"
+anims/caminar = SubResource( 3 )
 [connection signal="timeout" from="GunTimer" to="." method="_on_GunTimer_timeout"]
 [connection signal="area_entered" from="AreaPlayer" to="AreaPlayer" method="_on_AreaPlayer_area_entered"]
 [connection signal="timeout" from="EnvTimer" to="." method="_on_EnvTimer_timeout"]
