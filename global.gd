@@ -1,9 +1,9 @@
 extends Node2D
 
-var score = 0
 var vida = 0
 onready var barraAgua = get_node("LevelWater")
 onready var barraVida = get_node("LevelLife")
+onready var barraOxigeno = get_node("LevelOxigeno")
 
 
 signal smoke
@@ -18,7 +18,7 @@ func _ready():
 	pass # Replace with function body.
 
 func _on_smoke():
-	emit_signal("smoke", score)
+	emit_signal("smoke", barraOxigeno)
 	
 func _on_fire():
 	emit_signal("fire", vida)
