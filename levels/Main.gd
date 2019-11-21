@@ -16,3 +16,9 @@ func reload_reset():
 	level = levelNew
 	level.world = self
 	self.add_child(level)
+	
+func siguienteNivel():
+	var levelSig = level.sigLevel.instance()
+	level.queue_free()
+	level = levelSig
+	self.add_child(level)

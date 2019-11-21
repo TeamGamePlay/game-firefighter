@@ -9,10 +9,10 @@ bg_color = Color( 0.0588235, 0.4, 0.890196, 1 )
 [sub_resource type="StyleBoxFlat" id=2]
 bg_color = Color( 0.0313726, 0.427451, 0.188235, 1 )
 
-[sub_resource type="StyleBoxFlat" id=4]
+[sub_resource type="StyleBoxFlat" id=3]
 bg_color = Color( 0.137255, 0.6, 0.278431, 1 )
 
-[sub_resource type="StyleBoxFlat" id=5]
+[sub_resource type="StyleBoxFlat" id=4]
 bg_color = Color( 0.847059, 0.188235, 0.0509804, 1 )
 
 [node name="UI" type="CanvasLayer"]
@@ -76,7 +76,7 @@ margin_top = 181.0
 margin_right = 135.0
 margin_bottom = 207.0
 theme = ExtResource( 2 )
-custom_styles/fg = SubResource( 4 )
-custom_styles/bg = SubResource( 5 )
+custom_styles/fg = SubResource( 3 )
+custom_styles/bg = SubResource( 4 )
 max_value = 300.0
 value = 300.0
