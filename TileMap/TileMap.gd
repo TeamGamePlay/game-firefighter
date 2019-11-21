@@ -5,10 +5,21 @@ enum CellType {PISO,PARED,NOINFLAMABLE,MARCA,COMBUSTIBLE,FUEGO}
 onready var fuego = preload("res://FireFighters/fire-particles/Particles2D.tscn")
 
 var world
+var cantFuego:int
 
 func _ready():
 	global.connect("apagarF", self, "apagarFuego")
-	
+	cantFuegos()
+
+func cantFuegos():
+	for cell in get_used_cells():
+		var cellType = get_cellv(cell)
+		contarFuego(cellType)
+
+func contarFuego(cellType):
+	match cellType:
+		CellType.FUEGO: cantFuego += 1
+		
 func marcarExpancion():
 	# me da todas las celdas para recorrer
 	for cell in get_used_cells():  
@@ -81,6 +92,7 @@ func crearFuego(cell):
 	var newFuego = fuego.instance()
 	newFuego.global_position = map_to_world(cell)
 	set_cellv(cell,CellType.FUEGO)
+	cantFuego +=1
 	add_child(newFuego)
 	
 func _on_Timer_timeout():
@@ -90,3 +102,6 @@ func _on_Timer_timeout():
 func apagarFuego(posFuego):
 	var cell = world_to_map(posFuego)
 	set_cellv(cell,CellType.PISO)
+	cantFuego -= 1
+	if(cantFuego == 0):
+		world.gano()

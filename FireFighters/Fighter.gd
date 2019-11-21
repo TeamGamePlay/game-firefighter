@@ -1,6 +1,6 @@
 extends "res://FireFighters/FireFighter.gd"
 
-onready var gameOver = preload("res://GameOver.tscn")
+onready var gameOver = preload("res://Label/GameOver.tscn")
 
 onready var ray = get_node("RayCast2D")
 onready var area = get_node("AreaPlayer")
@@ -67,7 +67,7 @@ func _on_EnvTimer_timeout():
 				get_parent().add_child(newGameOver)
 			else:
 				$CaraBombero.set_modulate(Color(r,g,b))
-			print("Pierdo oxigeno!")
+		#	print("Pierdo oxigeno!")
 			
 
 func _on_EnvTimer2_timeout():
