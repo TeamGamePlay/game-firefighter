@@ -73,6 +73,7 @@ margin_bottom = 39.0875
 theme = ExtResource( 2 )
 custom_styles/fg = SubResource( 1 )
 custom_styles/bg = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 0 )
 value = 100.0
 
 [node name="LevelLife" type="ProgressBar" parent="Control"]
@@ -84,6 +85,7 @@ margin_bottom = 38.263
 theme = ExtResource( 2 )
 custom_styles/fg = SubResource( 3 )
 custom_styles/bg = SubResource( 4 )
+custom_colors/font_color = Color( 0, 0, 0, 0 )
 max_value = 300.0
 value = 300.0
 
@@ -95,7 +97,7 @@ margin_bottom = 39.0
 theme = ExtResource( 2 )
 custom_styles/fg = SubResource( 5 )
 custom_styles/bg = SubResource( 6 )
-custom_colors/font_color = Color( 0.980392, 0.941176, 0.941176, 1 )
+custom_colors/font_color = Color( 0.980392, 0.941176, 0.941176, 0 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 max_value = 1500.0
 value = 1500.0
