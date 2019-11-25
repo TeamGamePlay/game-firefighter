@@ -104,6 +104,7 @@ func _on_EnvTimer_timeout():
 			global._on_smoke()
 			if(oxigeno <= 0):
 				# se pone azul cuando se queda sin oxigeno
+				$mascara.region_enabled = true                   
 				$CaraBombero.set_modulate(Color( 0, 0, 0.55, 1 ))
 				puedeMover = false
 				var newGameOver = gameOver.instance()

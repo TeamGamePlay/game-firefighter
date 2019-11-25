@@ -4,7 +4,7 @@
 [ext_resource path="res://gun/WaterFighter.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/bomberoSinCara.png" type="Texture" id=3]
 [ext_resource path="res://assets/caraBombero.png" type="Texture" id=4]
-[ext_resource path="res://assets/mascara.png" type="Texture" id=5]
+[ext_resource path="res://assets/mask.png" type="Texture" id=5]
 [ext_resource path="res://gun/gun1.png" type="Texture" id=6]
 [ext_resource path="res://FireFighters/AreaPlayer.gd" type="Script" id=7]
 [ext_resource path="res://Matafuego.tscn" type="PackedScene" id=8]
@@ -30,6 +30,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [ Vector2( 0.238261, 0.206228 ), Vector2( 0.2, 0.27 ), Vector2( 0.25, 0.2 ), Vector2( 0.238261, 0.206228 ) ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath("mascara:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3, 0.8, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.238, 0.206 ), Vector2( 0.2, 0.27 ), Vector2( 0.25, 0.2 ), Vector2( 0.238, 0.206 ) ]
+}
 
 [node name="Player" type="KinematicBody2D"]
 position = Vector2( 0, 1.79244 )
@@ -42,7 +54,7 @@ health = 200
 
 [node name="CuerpoBombero" type="Sprite" parent="."]
 position = Vector2( -9.39547, -10.1963 )
-scale = Vector2( 0.214434, 0.245942 )
+scale = Vector2( 0.241171, 0.204684 )
 texture = ExtResource( 3 )
 
 [node name="CaraBombero" type="Sprite" parent="."]
@@ -51,12 +63,12 @@ scale = Vector2( 0.262445, 0.27364 )
 texture = ExtResource( 4 )
 
 [node name="mascara" type="Sprite" parent="."]
-position = Vector2( -9.939, -17.9891 )
-scale = Vector2( 0.0334158, 0.0474441 )
+position = Vector2( -9.37977, -18.1761 )
+scale = Vector2( -0.240974, 0.204513 )
 texture = ExtResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( -9.56946, -9.57295 )
+position = Vector2( -9.20141, -11.9653 )
 shape = SubResource( 1 )
 
 [node name="Hose" type="Sprite" parent="."]
