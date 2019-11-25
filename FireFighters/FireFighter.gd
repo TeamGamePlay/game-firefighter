@@ -131,6 +131,9 @@ func disparar():
 func desactivarMatafuego():
 	$Matafuego/Particles2D.emitting = false
 	$Matafuego/Area2D/CollisionPolygon2D.disabled = true
+	
+func colocarMascara():
+	$mascara.region_enabled = false
 
 func _on_GunTimer_timeout():
 	can_shoot = true

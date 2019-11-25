@@ -1,15 +1,5 @@
 [gd_scene load_steps=12 format=2]
 
-<<<<<<< HEAD
-[ext_resource path="res://FireFighters/Fighter.gd" type="Script" id=1]
-[ext_resource path="res://gun/WaterFighter.tscn" type="PackedScene" id=2]
-[ext_resource path="res://assets/bomberoSinCara.png" type="Texture" id=3]
-[ext_resource path="res://assets/caraBombero.png" type="Texture" id=4]
-[ext_resource path="res://assets/mask.png" type="Texture" id=5]
-[ext_resource path="res://gun/gun1.png" type="Texture" id=6]
-[ext_resource path="res://FireFighters/AreaPlayer.gd" type="Script" id=7]
-[ext_resource path="res://Matafuego.tscn" type="PackedScene" id=8]
-=======
 [ext_resource path="res://FireFighters/FireFighter.gd" type="Script" id=1]
 [ext_resource path="res://assets/bomberoSinCara.png" type="Texture" id=2]
 [ext_resource path="res://assets/caraBombero.png" type="Texture" id=3]
@@ -17,7 +7,6 @@
 [ext_resource path="res://gun/gun1.png" type="Texture" id=5]
 [ext_resource path="res://FireFighters/AreaPlayer.gd" type="Script" id=6]
 [ext_resource path="res://Matafuego.tscn" type="PackedScene" id=7]
->>>>>>> f30500aef940177d12771a1c687bbb86bb6f4b4e
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 18.2078, 29.8271 )
@@ -41,7 +30,7 @@ tracks/0/keys = {
 "values": [ Vector2( 0.238261, 0.206228 ), Vector2( 0.2, 0.27 ), Vector2( 0.25, 0.2 ), Vector2( 0.238261, 0.206228 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("mascara:scale")
+tracks/1/path = NodePath("CaraBombero:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -75,32 +64,22 @@ script = ExtResource( 1 )
 
 [node name="CuerpoBombero" type="Sprite" parent="."]
 position = Vector2( -9.39547, -10.1963 )
-<<<<<<< HEAD
-scale = Vector2( 0.241171, 0.204684 )
-texture = ExtResource( 3 )
-=======
-scale = Vector2( 0.214434, 0.245942 )
+scale = Vector2( 0.245212, 0.20254 )
 texture = ExtResource( 2 )
->>>>>>> f30500aef940177d12771a1c687bbb86bb6f4b4e
 
 [node name="CaraBombero" type="Sprite" parent="."]
-position = Vector2( -9.59311, -18.235 )
-scale = Vector2( 0.262445, 0.27364 )
+position = Vector2( -9.24346, -22.256 )
+scale = Vector2( 0.245106, 0.202447 )
 texture = ExtResource( 3 )
 
 [node name="mascara" type="Sprite" parent="."]
-<<<<<<< HEAD
-position = Vector2( -9.37977, -18.1761 )
-scale = Vector2( -0.240974, 0.204513 )
-texture = ExtResource( 5 )
-=======
-position = Vector2( -9.939, -17.9891 )
-scale = Vector2( 0.0334158, 0.0474441 )
+position = Vector2( -9.51181, -20.0173 )
+scale = Vector2( 0.0307727, 0.0461709 )
 texture = ExtResource( 4 )
->>>>>>> f30500aef940177d12771a1c687bbb86bb6f4b4e
+region_enabled = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( -9.20141, -11.9653 )
+position = Vector2( -9.56946, -9.57295 )
 shape = SubResource( 1 )
 
 [node name="Hose" type="Sprite" parent="."]
@@ -140,5 +119,5 @@ anims/caminar = SubResource( 3 )
 anims/idle = SubResource( 4 )
 [connection signal="timeout" from="GunTimer" to="." method="_on_GunTimer_timeout"]
 [connection signal="area_entered" from="AreaPlayer" to="AreaPlayer" method="_on_AreaPlayer_area_entered"]
-[connection signal="timeout" from="EnvTimer" to="." method="_on_EnvTimer2_timeout"]
 [connection signal="timeout" from="EnvTimer" to="." method="_on_EnvTimer_timeout"]
+[connection signal="timeout" from="EnvTimer" to="." method="_on_EnvTimer2_timeout"]
