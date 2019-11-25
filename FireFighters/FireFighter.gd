@@ -35,7 +35,6 @@ var input
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	speed = 200
-	presiono()
 	pass # Replace with function body.
 
 func presiono():
@@ -67,8 +66,7 @@ func _change_state():
 		STATE.RUN:
 			$AnimationPlayer.play("caminar")
 		STATE.IDLE:
-			#$AnimationPlayer.stop()
-			pass
+			$AnimationPlayer.play("idle")
 		STATE.DEAD:
 			pass
 		
@@ -83,47 +81,53 @@ func _run_state():
 			pass
 			
 func _idle():
-	_mover()
+	disparar()
+	rotar()
 	presiono()
 	if(input.movUp or input.movDown or input.movLeft or input.movRight):
 		next_state = STATE.RUN
+		
+func rotar():
+	self.look_at(get_global_mouse_position())
 
 func _mover():
-	self.look_at(get_global_mouse_position())
-	var rot_dir = 0
+	rotar()	
 	
 	rotation += rotation_speed 
 	velocity = Vector2()
 	
-	if input.movRight and get_local_mouse_position().length() >= vision_range:
-		velocity = Vector2(0, speed).rotated(rotation)
+	presiono()
+	if(input.movUp or input.movDown or input.movLeft or input.movRight):
+		mover()
 	else:
 		next_state = STATE.IDLE
+	
+	disparar()
+	
+#		print("Aguaaaa!!!")
+
+func mover():
+	if input.movRight and get_local_mouse_position().length() >= vision_range:
+		velocity = Vector2(0, speed).rotated(rotation)
 	
 	if input.movLeft and get_local_mouse_position().length() >= vision_range:
 		velocity = Vector2(0, -speed/2).rotated(rotation)
-	else:
-		next_state = STATE.IDLE
 	
 	if input.movUp and get_local_mouse_position().length() >= vision_range:
 		velocity = Vector2(speed, 0).rotated(rotation)
-	else:
-		next_state = STATE.IDLE
 	
 	if input.movDown and get_local_mouse_position().length() >= vision_range:
 		velocity = Vector2(-speed/2, 0).rotated(rotation)
-	else:
-		next_state = STATE.IDLE
 	
 	move_and_slide(velocity)
 	
+func disparar():
 	var is_firing = Input.is_action_pressed("ui_accept")
 	$Matafuego/Particles2D.emitting = is_firing
 	$Matafuego/Area2D/CollisionPolygon2D.disabled = not is_firing
 	if is_firing:
 		global._on_water()
-#		print("Aguaaaa!!!")
-
+		
 func desactivarMatafuego():
 	$Matafuego/Particles2D.emitting = false
 	$Matafuego/Area2D/CollisionPolygon2D.disabled = true

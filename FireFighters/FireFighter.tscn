@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://FireFighters/FireFighter.gd" type="Script" id=1]
 [ext_resource path="res://assets/bomberoSinCara.png" type="Texture" id=2]
@@ -28,6 +28,21 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 0,
 "values": [ Vector2( 0.238261, 0.206228 ), Vector2( 0.2, 0.27 ), Vector2( 0.25, 0.2 ), Vector2( 0.238261, 0.206228 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "idle"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 0,
+"values": [  ]
 }
 
 [node name="Player" type="KinematicBody2D"]
@@ -88,7 +103,8 @@ autostart = true
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "caminar"
 anims/caminar = SubResource( 3 )
+anims/idle = SubResource( 4 )
 [connection signal="timeout" from="GunTimer" to="." method="_on_GunTimer_timeout"]
 [connection signal="area_entered" from="AreaPlayer" to="AreaPlayer" method="_on_AreaPlayer_area_entered"]
-[connection signal="timeout" from="EnvTimer" to="." method="_on_EnvTimer_timeout"]
 [connection signal="timeout" from="EnvTimer" to="." method="_on_EnvTimer2_timeout"]
+[connection signal="timeout" from="EnvTimer" to="." method="_on_EnvTimer_timeout"]
