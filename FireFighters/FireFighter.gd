@@ -91,7 +91,7 @@ func rotar():
 	self.look_at(get_global_mouse_position())
 
 func _mover():
-	rotar()	
+	rotar()
 	
 	rotation += rotation_speed 
 	velocity = Vector2()
@@ -127,7 +127,7 @@ func disparar():
 	$Matafuego/Area2D/CollisionPolygon2D.disabled = not is_firing
 	if is_firing:
 		global._on_water()
-		
+
 func desactivarMatafuego():
 	$Matafuego/Particles2D.emitting = false
 	$Matafuego/Area2D/CollisionPolygon2D.disabled = true
