@@ -137,12 +137,18 @@ func colocarMascara():
 
 func _on_GunTimer_timeout():
 	can_shoot = true
-
+	
+func tieneMascara():
+	return ! $mascara.region_enabled
+	
 func quitaOxigeno(actOx):
 	if(oxigeno == 0):
 		oxigeno = 0
 	else:
 		oxigeno = actOx
+		
+func restablecerOxigeno():
+	oxigeno = 600
 	
 func quitaVida(actVida):
 	vida = actVida
@@ -158,10 +164,14 @@ func _on_EnvTimer_timeout():
 			print(g)
 			global._on_smoke()
 			if(oxigeno <= 0):
-				# se pone azul cuando se queda sin oxigeno
-				$CaraBombero.set_modulate(Color( 0, 0, 0.55, 1 ))
-				var newGameOver = gameOver.instance()
-				get_parent().add_child(newGameOver)
+				if  ! self.tieneMascara():
+					# se pone azul cuando se queda sin oxigeno
+					$CaraBombero.set_modulate(Color( 0, 0, 0.55, 1 ))
+					var newGameOver = gameOver.instance()
+					get_parent().add_child(newGameOver)
+				else:
+					$mascara.region_enabled = true
+					global._on_recharge_oxigeno()
 			else:
 				$CaraBombero.set_modulate(Color(r,g,b))
 		#	print("Pierdo oxigeno!")

@@ -13,6 +13,7 @@ signal apagarF
 signal reset
 signal fire2
 signal recharge
+signal rechargeOxigen
 
 func _ready():
 	pass # Replace with function body.
@@ -38,3 +39,5 @@ func _on_reset():
 func _on_recharge_water():
 	emit_signal("recharge", barraAgua)
 
+func _on_recharge_oxigeno():
+	emit_signal("rechargeOxigen", barraOxigeno)
