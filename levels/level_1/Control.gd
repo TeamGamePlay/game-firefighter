@@ -1,7 +1,7 @@
 extends Control
 
-var oxigeno = 600
-var vida = 300
+var oxigeno = 1500
+var vida = 1500
 onready var barraAgua = get_node("LevelWater")
 onready var barraVida = get_node("LevelLife")
 onready var barraOxigeno = get_node("LevelOxigeno")
@@ -25,9 +25,9 @@ func smoke(s):
 		player.quitaOxigeno(oxigeno)
 		barraOxigeno.value = barraOxigeno.value - 10
 	else:
-		oxigeno -= 40
+		oxigeno -= 30
 		player.quitaOxigeno(oxigeno)
-		barraOxigeno.value = barraOxigeno.value - 40
+		barraOxigeno.value = barraOxigeno.value - 30
 
 
 func fire(s):
@@ -54,6 +54,6 @@ func recharge(s):
 	barraAgua.value = 100
 	
 func rechargeOxigen(s):
-	barraOxigeno.value = 600
-	oxigeno = 600
+	barraOxigeno.value = 1500
+	oxigeno = 1500
 	player.restablecerOxigeno()

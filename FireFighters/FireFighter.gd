@@ -148,7 +148,7 @@ func quitaOxigeno(actOx):
 		oxigeno = actOx
 		
 func restablecerOxigeno():
-	oxigeno = 600
+	oxigeno = 1500
 	
 func quitaVida(actVida):
 	vida = actVida
@@ -187,11 +187,12 @@ func _on_EnvTimer2_timeout():
 			var b2 = $CaraBombero.get_modulate().b
 			global._on_fire()
 			global._on_fire2()
-			if(vida <= 0):
-				$CaraBombero.set_modulate(Color(131, 52, 157, 255))
-				var newGameOver = gameOver.instance()
-				get_parent().add_child(newGameOver)
-				# Se pone morado cuando se queda sin vida
-			else:
-				$CaraBombero.set_modulate(Color(r2,g2,b2))
-			print("me quemo mabel!!!")
+			if ! self.tieneMascara():
+				if(vida <= 0):
+					$CaraBombero.set_modulate(Color(131, 52, 157, 255))
+					var newGameOver = gameOver.instance()
+					get_parent().add_child(newGameOver)
+				   # Se pone morado cuando se queda sin vida
+				else:
+					$CaraBombero.set_modulate(Color(r2,g2,b2))
+					print("me quemo mabel!!!")
