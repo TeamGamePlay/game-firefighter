@@ -6,7 +6,7 @@ onready var canvas = $UI/Control
 onready var matafuego = $Player/Matafuego
 onready var tile = $TileMap
 
-onready var sigLevel
+onready var sigLevel = preload("res://levels/level_4/World_4.tscn")
 onready var ganaste = preload("res://Label/Ganaste.tscn")
 onready var sigNivel = preload("res://Label/SiguienteNivel.tscn")
 
@@ -15,7 +15,7 @@ var world
 func _ready():
 	canvas.player = player
 	canvas.matafuego = matafuego
-	pass
+	tile.world = self
 	
 func _on_Fighter_shoot(water, _position, _direction):
 	var b = water.instance()

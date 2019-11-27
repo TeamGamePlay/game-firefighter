@@ -59,7 +59,7 @@ func _change_state():
 		STATE.IDLE:
 			state = next_state
 		STATE.DEAD:
-			pass
+			state = next_state
 			
 	# Inicializo el state nuevo
 	match next_state:
@@ -68,7 +68,8 @@ func _change_state():
 		STATE.IDLE:
 			$AnimationPlayer.play("idle")
 		STATE.DEAD:
-			pass
+			$CuerpoBombero2.visible = false
+			$CaraBombero2.visible = true
 		
 
 func _run_state():
@@ -78,8 +79,12 @@ func _run_state():
 		STATE.IDLE:
 			_idle()
 		STATE.DEAD:
-			pass
+			_dead()
 			
+func _dead():
+	var newGameOver = gameOver.instance()
+	get_parent().add_child(newGameOver)
+	
 func _idle():
 	disparar()
 	rotar()
@@ -166,9 +171,10 @@ func _on_EnvTimer_timeout():
 			if(oxigeno <= 0):
 				if  ! self.tieneMascara():
 					# se pone azul cuando se queda sin oxigeno
-					$CaraBombero.set_modulate(Color( 0, 0, 0.55, 1 ))
-					var newGameOver = gameOver.instance()
-					get_parent().add_child(newGameOver)
+					#$CaraBombero.set_modulate(Color( 0, 0, 0.55, 1 ))
+					#var newGameOver = gameOver.instance()
+					#get_parent().add_child(newGameOver)
+					next_state = STATE.DEAD
 				else:
 					$mascara.region_enabled = true
 					global._on_recharge_oxigeno()
@@ -189,9 +195,10 @@ func _on_EnvTimer2_timeout():
 			global._on_fire2()
 			if ! self.tieneMascara():
 				if(vida <= 0):
-					$CaraBombero.set_modulate(Color(131, 52, 157, 255))
-					var newGameOver = gameOver.instance()
-					get_parent().add_child(newGameOver)
+					#$CaraBombero.set_modulate(Color(131, 52, 157, 255))
+					#var newGameOver = gameOver.instance()
+					#get_parent().add_child(newGameOver)
+					next_state = STATE.DEAD
 				   # Se pone morado cuando se queda sin vida
 				else:
 					$CaraBombero.set_modulate(Color(r2,g2,b2))

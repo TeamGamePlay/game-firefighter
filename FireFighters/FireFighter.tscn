@@ -70,7 +70,21 @@ position = Vector2( -9.39547, -10.1963 )
 scale = Vector2( 0.245212, 0.20254 )
 texture = ExtResource( 2 )
 
+[node name="CuerpoBombero2" type="Sprite" parent="."]
+visible = false
+modulate = Color( 0.309804, 0.14902, 0.133333, 1 )
+position = Vector2( -9.39547, -10.1963 )
+scale = Vector2( 0.245212, 0.20254 )
+texture = ExtResource( 2 )
+
 [node name="CaraBombero" type="Sprite" parent="."]
+position = Vector2( -9.24346, -22.256 )
+scale = Vector2( 0.245106, 0.202447 )
+texture = ExtResource( 3 )
+
+[node name="CaraBombero2" type="Sprite" parent="."]
+visible = false
+modulate = Color( 0.309804, 0.14902, 0.133333, 1 )
 position = Vector2( -9.24346, -22.256 )
 scale = Vector2( 0.245106, 0.202447 )
 texture = ExtResource( 3 )

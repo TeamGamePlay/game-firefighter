@@ -15,7 +15,7 @@ var world
 func _ready():
 	canvas.player = player
 	canvas.matafuego = matafuego
-	pass
+	tile.world = self
 	
 func _on_Fighter_shoot(water, _position, _direction):
 	var b = water.instance()
