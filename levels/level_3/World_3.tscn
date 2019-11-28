@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://levels/level_3/World_3.gd" type="Script" id=1]
 [ext_resource path="res://TileMap/TileMap_2.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://UI.tscn" type="PackedScene" id=5]
 [ext_resource path="res://WaterRechange.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Mascara.tscn" type="PackedScene" id=7]
+[ext_resource path="res://util/Camera2D.tscn" type="PackedScene" id=8]
 
 [node name="World_3" type="Node2D"]
 script = ExtResource( 1 )
@@ -17,10 +18,6 @@ tile_data = PoolIntArray( -655338, 0, 0, -655337, 0, 0, 0, 1, 0, 1, 1, 0, 2, 1, 
 [node name="Player" parent="." instance=ExtResource( 3 )]
 position = Vector2( 91.0263, 295.426 )
 scale = Vector2( 1.0016, 1 )
-
-[node name="Camera2D" type="Camera2D" parent="Player"]
-position = Vector2( 78.0854, 16.2678 )
-current = true
 
 [node name="Fire-1" parent="." instance=ExtResource( 4 )]
 position = Vector2( 1201.18, 663.948 )
@@ -44,3 +41,5 @@ position = Vector2( 1149.09, 794.995 )
 
 [node name="Mascara" parent="." instance=ExtResource( 7 )]
 position = Vector2( 1322.37, 625.439 )
+
+[node name="Camera2D" parent="." instance=ExtResource( 8 )]
