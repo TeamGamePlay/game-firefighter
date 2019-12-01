@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Mascara.gd" type="Script" id=1]
 [ext_resource path="res://assets/mascara.png" type="Texture" id=2]
+[ext_resource path="res://sonido.tscn" type="PackedScene" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 29.6504, 22.8009 )
@@ -37,4 +38,6 @@ shape = SubResource( 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/mascara = SubResource( 2 )
+
+[node name="sonido" parent="." instance=ExtResource( 3 )]
 [connection signal="body_entered" from="." to="." method="_on_Mascara_body_entered"]

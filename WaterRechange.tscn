@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://WaterRechange.gd" type="Script" id=1]
 [ext_resource path="res://assets/bombaDeAgua.png" type="Texture" id=2]
 [ext_resource path="res://assets/circulo.png" type="Texture" id=3]
+[ext_resource path="res://sonido.tscn" type="PackedScene" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 54.3771, 53.7006 )
@@ -52,4 +53,6 @@ visibility_rect = Rect2( -1, -100, 200, 200 )
 local_coords = false
 process_material = SubResource( 4 )
 texture = ExtResource( 3 )
+
+[node name="sonido" parent="." instance=ExtResource( 4 )]
 [connection signal="body_entered" from="." to="." method="_on_AreaBombaDeAgua_player_entered"]

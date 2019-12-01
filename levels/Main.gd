@@ -5,6 +5,7 @@ var level
 var levelRest
 
 func _ready():
+	$sonido/start.playing = true
 	level = level1.instance()
 	level.world = self
 	self.add_child(level)

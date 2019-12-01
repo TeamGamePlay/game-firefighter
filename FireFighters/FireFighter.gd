@@ -130,6 +130,7 @@ func disparar():
 	var is_firing = Input.is_action_pressed("ui_accept")
 	$Matafuego/Particles2D.emitting = is_firing
 	$Matafuego/Area2D/CollisionPolygon2D.disabled = not is_firing
+	$sonido/AudioStreamPlayer2D.playing = is_firing
 	if is_firing:
 		global._on_water()
 
@@ -138,13 +139,23 @@ func desactivarMatafuego():
 	$Matafuego/Area2D/CollisionPolygon2D.disabled = true
 	
 func colocarMascara():
+	$sonido/tomar_item.playing = true
 	$mascara.region_enabled = false
+	
+func sonidoDeAgua():
+	$sonido/tomar_item.playing = true
+	
+func colocarLlave():
+	$llave.region_enabled = false
 
 func _on_GunTimer_timeout():
 	can_shoot = true
 	
 func tieneMascara():
 	return ! $mascara.region_enabled
+	
+func tieneLlave():
+	return ! $llave.region_enabled
 	
 func quitaOxigeno(actOx):
 	if(oxigeno == 0):
@@ -175,6 +186,7 @@ func _on_EnvTimer_timeout():
 					#var newGameOver = gameOver.instance()
 					#get_parent().add_child(newGameOver)
 					next_state = STATE.DEAD
+					$sonido/game_over.playing = true
 				else:
 					$mascara.region_enabled = true
 					global._on_recharge_oxigeno()
@@ -199,6 +211,7 @@ func _on_EnvTimer2_timeout():
 					#var newGameOver = gameOver.instance()
 					#get_parent().add_child(newGameOver)
 					next_state = STATE.DEAD
+					$sonido/game_over.playing = true
 				   # Se pone morado cuando se queda sin vida
 				else:
 					$CaraBombero.set_modulate(Color(r2,g2,b2))
