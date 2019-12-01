@@ -1,0 +1,51 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Matafuego.gd" type="Script" id=1]
+[ext_resource path="res://Water.tscn" type="PackedScene" id=2]
+
+[sub_resource type="Gradient" id=1]
+offsets = PoolRealArray( 0.0122378, 0.263986, 0.951049 )
+colors = PoolColorArray( 1, 1, 1, 1, 0.858589, 0.966857, 1, 0.731844, 0.472656, 0.876404, 1, 0 )
+
+[sub_resource type="GradientTexture" id=2]
+gradient = SubResource( 1 )
+
+[sub_resource type="Curve" id=3]
+_data = [ Vector2( 0.00428528, 0.3163 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=4]
+curve = SubResource( 3 )
+
+[sub_resource type="ParticlesMaterial" id=5]
+emission_shape = 1
+emission_sphere_radius = 5.41
+flag_disable_z = true
+spread = 0.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 103.45
+angular_velocity = 14.2773
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale_curve = SubResource( 4 )
+color_ramp = SubResource( 2 )
+
+[node name="Matafuego" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Particles2D" parent="." instance=ExtResource( 2 )]
+emitting = false
+speed_scale = 4.0
+process_material = SubResource( 5 )
+script = null
+
+[node name="Area2D" type="Area2D" parent="."]
+editor/display_folded = true
+collision_layer = 32
+collision_mask = 32
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PoolVector2Array( 78.1298, -17.059, 78.1298, 14.7182, -2.56773, -0.752254 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true

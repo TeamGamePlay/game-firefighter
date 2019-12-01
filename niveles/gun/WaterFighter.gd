@@ -1,0 +1,1 @@
+extends "res://gun/Water.gd"

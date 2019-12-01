@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/efectos-de-sonido-bomba-de-agua.wav-5c9a857da6cb2abc8066b77d179d7090.sample"
+
+[deps]
+
+source_file="res://sonidos/efectos-de-sonido-bomba-de-agua.wav"
+dest_files=[ "res://.import/efectos-de-sonido-bomba-de-agua.wav-5c9a857da6cb2abc8066b77d179d7090.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0
