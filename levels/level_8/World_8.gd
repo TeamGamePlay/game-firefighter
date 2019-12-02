@@ -9,6 +9,7 @@ onready var tile = $TileMap
 onready var sigLevel = preload("res://levels/level_4/World_4.tscn")
 onready var ganaste = preload("res://Label/Ganaste.tscn")
 onready var sigNivel = preload("res://Label/SiguienteNivel.tscn")
+onready var gameOver = preload("res://Label/GameOver.tscn")
 
 var world
 
@@ -34,3 +35,7 @@ func gano():
 		var newSigNivel = sigNivel.instance()
 		newSigNivel.world = get_parent()
 		self.add_child(newSigNivel)
+
+func gameOver():
+	var newGameOver = gameOver.instance()
+	self.add_child(newGameOver)
