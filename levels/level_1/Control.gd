@@ -21,9 +21,9 @@ func _ready():
 	
 func smoke(s):
 	if player.tieneMascara():
-		oxigeno -= 10
+		oxigeno -= 15
 		player.quitaOxigeno(oxigeno)
-		barraOxigeno.value = barraOxigeno.value - 10
+		barraOxigeno.value = barraOxigeno.value - 15
 	else:
 		oxigeno -= 30
 		player.quitaOxigeno(oxigeno)
@@ -31,10 +31,11 @@ func smoke(s):
 
 
 func fire(s):
+	#Si tiene mascara, no quita vida (dentro del fuego).
 	if player.tieneMascara():
 		pass
 	else:
-		vida -= 200
+		vida -= 70
 		player.quitaVida(vida)
 	
 	
@@ -42,19 +43,20 @@ func fire2(s):
 	if player.tieneMascara():
 		pass
 	else:
-		barraVida.value = barraVida.value - 200
+		barraVida.value = barraVida.value - 70
 
 func water(s):
-	 barraAgua.value = barraAgua.value - 0.05
+	 barraAgua.value = barraAgua.value - 0.07
 	 if barraAgua.value == 0:
 	    player.desactivarMatafuego()
 	    print("NO HAY MAS AAGUAAAAAAAA!!!!")
 			
 func recharge(s):
+	#Recarga de agua con la bomba.
 	player.sonidoDeAgua()
 	barraAgua.value = 100
 	
 func rechargeOxigen(s):
-	barraOxigeno.value = 1500
-	oxigeno = 1500
+	barraOxigeno.value = 2000
+	oxigeno = 2000
 	player.restablecerOxigeno()

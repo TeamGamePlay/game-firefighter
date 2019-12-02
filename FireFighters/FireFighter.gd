@@ -167,7 +167,7 @@ func quitaOxigeno(actOx):
 		oxigeno = actOx
 		
 func restablecerOxigeno():
-	oxigeno = 1500
+	oxigeno = 2000
 	
 func quitaVida(actVida):
 	vida = actVida

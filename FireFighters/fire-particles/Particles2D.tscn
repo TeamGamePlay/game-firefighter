@@ -15,7 +15,7 @@ orbit_velocity_random = 0.0
 color = Color( 0.698039, 0.305882, 0.305882, 1 )
 
 [sub_resource type="CircleShape2D" id=2]
-radius = 64.8034
+radius = 99.9285
 
 [sub_resource type="SegmentShape2D" id=3]
 a = Vector2( 77.8496, -156.821 )
