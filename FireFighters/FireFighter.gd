@@ -147,6 +147,7 @@ func sonidoDeAgua():
 	$sonido/tomar_item.playing = true
 	
 func colocarLlave():
+	$sonido/tomar_llave.playing = true
 	$llave.region_enabled = false
 
 func _on_GunTimer_timeout():
@@ -156,6 +157,7 @@ func tieneMascara():
 	return ! $mascara.region_enabled
 	
 func tieneLlave():
+	$sonido/abrir_puerta.playing = true
 	return ! $llave.region_enabled
 	
 func quitaOxigeno(actOx):
