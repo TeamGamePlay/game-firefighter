@@ -82,8 +82,9 @@ func _run_state():
 			_dead()
 			
 func _dead():
-	var newGameOver = gameOver.instance()
-	get_parent().add_child(newGameOver)
+	get_parent().gameOver()
+	#var newGameOver = gameOver.instance()
+	#get_parent().add_child(newGameOver)
 	
 func _idle():
 	disparar()
