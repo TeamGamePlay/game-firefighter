@@ -35,6 +35,7 @@ var input
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	speed = 200
+	_change_state()
 	pass # Replace with function body.
 
 func presiono():
