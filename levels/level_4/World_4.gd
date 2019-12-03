@@ -7,7 +7,7 @@ onready var matafuego = $Player/Matafuego
 onready var tile = $TileMap
 onready var camara = $Camera2D
 
-onready var sigLevel
+onready var sigLevel = preload("res://levels/level_5/World_5.tscn")
 onready var ganaste = preload("res://Label/Ganaste.tscn")
 onready var sigNivel = preload("res://Label/SiguienteNivel.tscn")
 onready var labelPos = preload("res://util/LabelPos.tscn")
