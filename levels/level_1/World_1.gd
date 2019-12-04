@@ -11,11 +11,13 @@ onready var sigNivel = preload("res://Label/SiguienteNivel.tscn")
 onready var gameOver = preload("res://Label/GameOver.tscn")
 
 var world
+var timer:Timer
 
 func _ready():
 	canvas.player = player
 	canvas.matafuego = matafuego
 	tile.world = self
+	
 	
 func _on_Fighter_shoot(water, _position, _direction):
 	var b = water.instance()

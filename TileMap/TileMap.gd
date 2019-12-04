@@ -1,5 +1,5 @@
 extends TileMap
-
+onready var t = $Timer
 enum CellType {PISO,PARED,NOINFLAMABLE,MARCA,COMBUSTIBLE,FUEGO}
 
 onready var fuego = preload("res://FireFighters/fire-particles/Particles2D.tscn")
@@ -105,3 +105,6 @@ func apagarFuego(posFuego):
 	cantFuego -= 1
 	if(cantFuego == 0):
 		world.gano()
+
+func modificarTimer(value):
+	t.set_wait_time(value)

@@ -34,9 +34,9 @@ margin_top = 0.1409
 margin_right = 116.068
 margin_bottom = 41.1413
 theme = ExtResource( 2 )
-custom_colors/font_color = Color( 0.952941, 0.109804, 0.109804, 1 )
+custom_colors/font_color = Color( 0.976471, 0.141176, 0.0313726, 1 )
 custom_colors/font_color_shadow = Color( 0.815686, 0.827451, 0.796078, 1 )
-text = "Oxigeno"
+text = "OXYGEN"
 align = 1
 valign = 1
 
@@ -48,7 +48,7 @@ margin_bottom = 40.2627
 theme = ExtResource( 2 )
 custom_colors/font_color = Color( 0.270588, 0.976471, 0.313726, 1 )
 custom_colors/font_color_shadow = Color( 0.933333, 0.933333, 0.933333, 1 )
-text = "Vida"
+text = "LIFE"
 align = 1
 valign = 1
 
@@ -61,7 +61,7 @@ theme = ExtResource( 2 )
 custom_colors/font_color = Color( 0.470588, 0.588235, 0.945098, 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 custom_colors/font_color_shadow = Color( 0.980392, 0.972549, 0.972549, 1 )
-text = "Agua"
+text = "WATER"
 align = 1
 valign = 1
 

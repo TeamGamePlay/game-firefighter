@@ -19,6 +19,6 @@ rect_scale = Vector2( 15.9079, 22.0924 )
 custom_styles/normal = SubResource( 1 )
 custom_colors/font_color = Color( 0.0588235, 0.972549, 0.286275, 1 )
 custom_colors/font_color_shadow = Color( 0.952941, 0.972549, 0.701961, 1 )
-text = "Ganaste!!!"
+text = "You Win!!!"
 align = 1
 valign = 1
