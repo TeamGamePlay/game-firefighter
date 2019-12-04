@@ -40,10 +40,10 @@ func _ready():
 
 func presiono():
 	input = {
-		movUp = Input.is_action_pressed("ui_up"),
-		movDown = Input.is_action_pressed("ui_down"),  
-		movLeft = Input.is_action_pressed("ui_left"),
-		movRight = Input.is_action_pressed("ui_right")
+		movUp = Input.is_action_pressed("arriba"),
+		movDown = Input.is_action_pressed("abajo"),  
+		movLeft = Input.is_action_pressed("derecha"),
+		movRight = Input.is_action_pressed("izquierda")
 		}
 
 func _physics_process(delta):
