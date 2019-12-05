@@ -17,7 +17,7 @@ func _ready():
 	canvas.player = player
 	canvas.matafuego = matafuego
 	tile.world = self
-	tile.modificarTimer(8)
+	tile.modificarTimer(4)
 	
 func _on_Fighter_shoot(water, _position, _direction):
 	var b = water.instance()

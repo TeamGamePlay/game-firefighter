@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://levels/level_2/World_2.gd" type="Script" id=1]
 [ext_resource path="res://TileMap/TileMap.tscn" type="PackedScene" id=2]
@@ -6,7 +6,6 @@
 [ext_resource path="res://WaterRechange.tscn" type="PackedScene" id=4]
 [ext_resource path="res://FireFighters/FireFighter.tscn" type="PackedScene" id=5]
 [ext_resource path="res://UI.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Mascara.tscn" type="PackedScene" id=7]
 
 [node name="World_2" type="Node2D"]
 script = ExtResource( 1 )
@@ -33,6 +32,3 @@ position = Vector2( 449.891, 631.142 )
 position = Vector2( 309.633, 428.307 )
 
 [node name="UI" parent="." instance=ExtResource( 6 )]
-
-[node name="Mascara" parent="." instance=ExtResource( 7 )]
-position = Vector2( 732.153, 268.967 )
