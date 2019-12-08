@@ -2,7 +2,7 @@ extends TileMap
 onready var t = $Timer
 enum CellType {PISO,PARED,NOINFLAMABLE,MARCA,COMBUSTIBLE,FUEGO}
 
-onready var fuego = preload("res://FireFighters/fire-particles/Particles2D.tscn")
+onready var fuego = preload("res://FireFighters/fire-particles/Fuego.tscn")
 
 var world
 var cantFuego:int
@@ -126,13 +126,10 @@ func agregarFuego(cell, cellType):
 		CellType.MARCA: crearCelFuego(cell)
 	
 func crearCelFuego(cell):
-	#var newFuego = fuego.instance()
-	#newFuego.global_position = map_to_world(cell)
 	set_cellv(cell,CellType.FUEGO)
 	celdasFuego.push_front(cell)
-	fuegos.pop_front().global_position = map_to_world(cell)
-	#cantFuego +=1
-	#add_child(newFuego)
+	var v = map_to_world(cell)
+	fuegos.pop_front().global_position = Vector2(v.x+16,v.y+16) 
 	
 func _on_Timer_timeout():
 	marcarExpancion()
