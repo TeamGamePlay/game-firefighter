@@ -9,12 +9,36 @@ var cantFuego:int
 
 var celdasMarcadas:Array = []
 var celdasFuego:Array = []
+var fuegos:Array = []
+
+var cantCel:int = 0
 
 func _ready():
 	global.connect("apagarF", self, "apagarFuego")
 	cantFuegos()
-	print(celdasFuego.size())
+	cantCelda()
+	crearFuegos()
 
+func crearFuegos():
+	for c in cantCel:
+		crearFuego()
+
+func crearFuego():
+	var newFuego = fuego.instance()
+	newFuego.global_position = map_to_world(Vector2(-8,0))
+	fuegos.push_front(newFuego)
+	cantFuego +=1
+	add_child(newFuego)
+	
+func cantCelda():
+	for cell in get_used_cells():
+		var cellType = get_cellv(cell)
+		contarCelda(cellType)
+		
+func contarCelda(cellT):
+	match cellT:
+		CellType.PISO : cantCel +=1
+		  
 func cantFuegos():
 	for cell in get_used_cells():
 		var cellType = get_cellv(cell)
@@ -22,7 +46,11 @@ func cantFuegos():
 
 func contarFuego(cellType,cell):
 	match cellType:
-		CellType.FUEGO: celdasFuego.push_front(cell)#cantFuego += 1
+		CellType.FUEGO: agregarALista(cell)
+
+func agregarALista(cell):
+	celdasFuego.push_front(cell)
+	cantFuego += 1
 		
 func marcarExpancion():
 	# me da todas las celdas para recorrer
@@ -39,7 +67,7 @@ func dejarMarca(cell, cellNextType):
 # son inflamable o combustibles
 func marcar(cell):
 	marcarSiInflamable(cell)
-	#marcarSICombustible(cell)
+	marcarSICombustible(cell)
 
 func marcarSiInflamable(cell):
 	var cellNorte = Vector2(cell.x, cell.y - 1)
@@ -58,9 +86,9 @@ func marcarSiInflamable(cell):
 	
 func marcarInflamable(cell, cellType):
 	match cellType:
-		CellType.PISO: f(cell)
+		CellType.PISO: marcarI(cell)
 
-func f(cell):
+func marcarI(cell):
 	set_cellv(cell,CellType.MARCA)
 	celdasMarcadas.push_front(cell)   
 
@@ -85,6 +113,7 @@ func marcarCombustible(cell, cellType):
 
 func marcarC(cell, cellType):
 	set_cellv(cell,CellType.MARCA)
+	celdasMarcadas.push_front(cell) 
 	marcarSICombustible(cell)   
 
 func expandirFuego():
@@ -94,23 +123,20 @@ func expandirFuego():
 
 func agregarFuego(cell, cellType):
 	match cellType:
-		CellType.MARCA: crearFuego(cell)
+		CellType.MARCA: crearCelFuego(cell)
 	
-func crearFuego(cell):
+func crearCelFuego(cell):
 	#var newFuego = fuego.instance()
 	#newFuego.global_position = map_to_world(cell)
 	set_cellv(cell,CellType.FUEGO)
 	celdasFuego.push_front(cell)
-	cantFuego +=1
+	fuegos.pop_front().global_position = map_to_world(cell)
+	#cantFuego +=1
 	#add_child(newFuego)
 	
 func _on_Timer_timeout():
 	marcarExpancion()
-	print("celdas marcadas")
-	print(celdasMarcadas.size())
 	expandirFuego()
-	print("celdas fueog")
-	print(celdasFuego.size())
 	
 func apagarFuego(posFuego):
 	var cell = world_to_map(posFuego)
