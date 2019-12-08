@@ -7,22 +7,26 @@ onready var fuego = preload("res://FireFighters/fire-particles/Particles2D.tscn"
 var world
 var cantFuego:int
 
+var celdasMarcadas:Array = []
+var celdasFuego:Array = []
+
 func _ready():
 	global.connect("apagarF", self, "apagarFuego")
 	cantFuegos()
+	print(celdasFuego.size())
 
 func cantFuegos():
 	for cell in get_used_cells():
 		var cellType = get_cellv(cell)
-		contarFuego(cellType)
+		contarFuego(cellType,cell)
 
-func contarFuego(cellType):
+func contarFuego(cellType,cell):
 	match cellType:
-		CellType.FUEGO: cantFuego += 1
+		CellType.FUEGO: celdasFuego.push_front(cell)#cantFuego += 1
 		
 func marcarExpancion():
 	# me da todas las celdas para recorrer
-	for cell in get_used_cells():  
+	for cell in celdasFuego:  
 		var cellNextType = get_cellv(cell)
 		dejarMarca(cell, cellNextType)
 		
@@ -35,7 +39,7 @@ func dejarMarca(cell, cellNextType):
 # son inflamable o combustibles
 func marcar(cell):
 	marcarSiInflamable(cell)
-	marcarSICombustible(cell)
+	#marcarSICombustible(cell)
 
 func marcarSiInflamable(cell):
 	var cellNorte = Vector2(cell.x, cell.y - 1)
@@ -54,7 +58,11 @@ func marcarSiInflamable(cell):
 	
 func marcarInflamable(cell, cellType):
 	match cellType:
-		CellType.PISO: set_cellv(cell,CellType.MARCA)   
+		CellType.PISO: f(cell)
+
+func f(cell):
+	set_cellv(cell,CellType.MARCA)
+	celdasMarcadas.push_front(cell)   
 
 func marcarSICombustible(cell):
 	var cellNorte = Vector2(cell.x, cell.y - 1)
@@ -89,15 +97,20 @@ func agregarFuego(cell, cellType):
 		CellType.MARCA: crearFuego(cell)
 	
 func crearFuego(cell):
-	var newFuego = fuego.instance()
-	newFuego.global_position = map_to_world(cell)
+	#var newFuego = fuego.instance()
+	#newFuego.global_position = map_to_world(cell)
 	set_cellv(cell,CellType.FUEGO)
+	celdasFuego.push_front(cell)
 	cantFuego +=1
-	add_child(newFuego)
+	#add_child(newFuego)
 	
 func _on_Timer_timeout():
 	marcarExpancion()
+	print("celdas marcadas")
+	print(celdasMarcadas.size())
 	expandirFuego()
+	print("celdas fueog")
+	print(celdasFuego.size())
 	
 func apagarFuego(posFuego):
 	var cell = world_to_map(posFuego)
