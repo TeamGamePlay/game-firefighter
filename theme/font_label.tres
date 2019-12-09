@@ -3,7 +3,7 @@
 [ext_resource path="res://theme/MyHandwritingSucks.ttf" type="DynamicFontData" id=1]
 
 [resource]
-size = 25
+size = 35
 outline_size = 2
 outline_color = Color( 0.0392157, 0.0196078, 0.0196078, 0 )
 use_filter = true

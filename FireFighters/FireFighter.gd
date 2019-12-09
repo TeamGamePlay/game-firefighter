@@ -191,6 +191,7 @@ func _on_EnvTimer_timeout():
 					$sonido/game_over.playing = true
 				else:
 					$mascara.region_enabled = true
+					global._on_info_out()
 					global._on_recharge_oxigeno()
 			else:
 				$CaraBombero.set_modulate(Color(r,g,b))
