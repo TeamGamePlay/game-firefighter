@@ -30,8 +30,8 @@ func _on_fire2():
 func _on_water():
 	emit_signal("water", barraAgua)
 	
-func apagar_fuego(pos):
-	emit_signal("apagarF", pos)
+func apagar_fuego(fuego):
+	emit_signal("apagarF", fuego)
 
 func _on_reset():
 	emit_signal("reset")

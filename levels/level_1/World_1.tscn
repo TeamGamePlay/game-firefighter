@@ -18,13 +18,13 @@ tile_data = PoolIntArray( 131071, 1, 0, 65536, 1, 0, 65537, 1, 0, 65538, 1, 0, 6
 position = Vector2( 566.195, 390.364 )
 
 [node name="Fuego" parent="." instance=ExtResource( 5 )]
-position = Vector2( 110.85, 175.465 )
+position = Vector2( 112.444, 176.353 )
 
 [node name="Fuego2" parent="." instance=ExtResource( 5 )]
-position = Vector2( 112.695, 594.52 )
+position = Vector2( 111.782, 591.922 )
 
 [node name="Fuego3" parent="." instance=ExtResource( 5 )]
-position = Vector2( 881.534, 176.576 )
+position = Vector2( 881.686, 175.993 )
 
 [node name="Fuego4" parent="." instance=ExtResource( 5 )]
-position = Vector2( 881.154, 592.615 )
+position = Vector2( 880.419, 590.41 )

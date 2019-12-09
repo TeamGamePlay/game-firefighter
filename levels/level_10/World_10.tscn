@@ -3,7 +3,7 @@
 [ext_resource path="res://levels/level_10/World_10.gd" type="Script" id=1]
 [ext_resource path="res://TileMap/TileMap_2.tscn" type="PackedScene" id=2]
 [ext_resource path="res://FireFighters/FireFighter.tscn" type="PackedScene" id=3]
-[ext_resource path="res://FireFighters/fire-particles/Particles2D.tscn" type="PackedScene" id=4]
+[ext_resource path="res://FireFighters/fire-particles/Fuego.tscn" type="PackedScene" id=4]
 [ext_resource path="res://UI.tscn" type="PackedScene" id=5]
 [ext_resource path="res://WaterRechange.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Mascara.tscn" type="PackedScene" id=7]
@@ -20,20 +20,20 @@ tile_data = PoolIntArray( 0, 1, 0, 1, 1, 0, 2, 1, 0, 3, 1, 0, 4, 1, 0, 5, 1, 0, 
 [node name="Player" parent="." instance=ExtResource( 3 )]
 position = Vector2( 83.2509, 104.434 )
 
-[node name="Fire-1" parent="." instance=ExtResource( 4 )]
-position = Vector2( 1232.62, 81.3168 )
+[node name="Fuego" parent="." instance=ExtResource( 4 )]
+position = Vector2( 305.502, 781.715 )
 
-[node name="Fire-2" parent="." instance=ExtResource( 4 )]
-position = Vector2( 1968.02, 82.6873 )
+[node name="Fuego2" parent="." instance=ExtResource( 4 )]
+position = Vector2( 817.053, 335.63 )
 
-[node name="Fire-3" parent="." instance=ExtResource( 4 )]
-position = Vector2( 311.788, 779.98 )
+[node name="Fuego3" parent="." instance=ExtResource( 4 )]
+position = Vector2( 1231.33, 79.8959 )
 
-[node name="Fire-4" parent="." instance=ExtResource( 4 )]
-position = Vector2( 1327.72, 750.172 )
+[node name="Fuego4" parent="." instance=ExtResource( 4 )]
+position = Vector2( 1327.84, 750.595 )
 
-[node name="Fire-5" parent="." instance=ExtResource( 4 )]
-position = Vector2( 806.783, 335.139 )
+[node name="Fuego5" parent="." instance=ExtResource( 4 )]
+position = Vector2( 1967.77, 80.0261 )
 
 [node name="UI" parent="." instance=ExtResource( 5 )]
 

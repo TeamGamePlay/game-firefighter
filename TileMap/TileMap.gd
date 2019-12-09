@@ -18,16 +18,15 @@ func _ready():
 	cantFuegos()
 	cantCelda()
 	crearFuegos()
-
+	
 func crearFuegos():
 	for c in cantCel:
 		crearFuego()
 
 func crearFuego():
 	var newFuego = fuego.instance()
-	newFuego.global_position = map_to_world(Vector2(-8,0))
+	newFuego.global_position = map_to_world(Vector2(-680,0))
 	fuegos.push_front(newFuego)
-	cantFuego +=1
 	add_child(newFuego)
 	
 func cantCelda():
@@ -129,15 +128,18 @@ func crearCelFuego(cell):
 	set_cellv(cell,CellType.FUEGO)
 	celdasFuego.push_front(cell)
 	var v = map_to_world(cell)
-	fuegos.pop_front().global_position = Vector2(v.x+16,v.y+16) 
+	fuegos.pop_front().global_position = Vector2(v.x+16,v.y+16)
+	cantFuego +=1
 	
 func _on_Timer_timeout():
 	marcarExpancion()
 	expandirFuego()
 	
-func apagarFuego(posFuego):
-	var cell = world_to_map(posFuego)
+func apagarFuego(unFuego):
+	var cell = world_to_map(unFuego.global_position)
 	set_cellv(cell,CellType.PISO)
+	fuegos.push_front(unFuego)
+	unFuego.global_position = map_to_world(Vector2(-8,0))
 	cantFuego -= 1
 	if(cantFuego == 0):
 		world.gano()
