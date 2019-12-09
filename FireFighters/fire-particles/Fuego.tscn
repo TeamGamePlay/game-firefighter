@@ -4,7 +4,7 @@
 [ext_resource path="res://assets/bitmap.png" type="Texture" id=2]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 22.9648
+radius = 20.9899
 
 [node name="Fuego" type="Node2D"]
 script = ExtResource( 1 )

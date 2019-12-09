@@ -64,7 +64,5 @@ shape = SubResource( 5 )
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="Humo"]
 shape = SubResource( 6 )
-
-[node name="Node2D" type="Node2D" parent="."]
 [connection signal="area_entered" from="Fuego" to="Fuego" method="_on_Area2D_area_entered"]
 [connection signal="body_entered" from="Humo" to="Humo" method="_on_Humo_body_entered"]

@@ -6,8 +6,8 @@
 [ext_resource path="res://Mascara.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Llave.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Door.tscn" type="PackedScene" id=6]
-[ext_resource path="res://FireFighters/FireFighter.tscn" type="PackedScene" id=7]
-[ext_resource path="res://FireFighters/fire-particles/Fuego.tscn" type="PackedScene" id=8]
+[ext_resource path="res://FireFighters/fire-particles/Fuego.tscn" type="PackedScene" id=7]
+[ext_resource path="res://FireFighters/FireFighter.tscn" type="PackedScene" id=8]
 [ext_resource path="res://UI.tscn" type="PackedScene" id=9]
 
 [node name="World_8" type="Node2D"]
@@ -31,16 +31,16 @@ position = Vector2( 447.034, 230.383 )
 [node name="Door2" parent="." instance=ExtResource( 6 )]
 position = Vector2( 735.081, 582.007 )
 
-[node name="Player" parent="." instance=ExtResource( 7 )]
-position = Vector2( 76.835, 205.71 )
-
-[node name="Fuego" parent="." instance=ExtResource( 8 )]
+[node name="Fuego" parent="." instance=ExtResource( 7 )]
 position = Vector2( 529.518, 495.493 )
 
-[node name="Fuego2" parent="." instance=ExtResource( 8 )]
+[node name="Fuego2" parent="." instance=ExtResource( 7 )]
 position = Vector2( 79.4347, 559.581 )
 
-[node name="Fuego3" parent="." instance=ExtResource( 8 )]
+[node name="Fuego3" parent="." instance=ExtResource( 7 )]
 position = Vector2( 848.563, 111.878 )
+
+[node name="Player" parent="." instance=ExtResource( 8 )]
+position = Vector2( 76.835, 205.71 )
 
 [node name="UI" parent="." instance=ExtResource( 9 )]

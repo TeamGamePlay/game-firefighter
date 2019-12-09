@@ -20,7 +20,7 @@ func _ready():
 	crearFuegos()
 	
 func crearFuegos():
-	for c in cantCel:
+	for c in 1600:
 		crearFuego()
 
 func crearFuego():
@@ -60,7 +60,6 @@ func marcarExpancion():
 func dejarMarca(cell, cellNextType):
 	match cellNextType:
 		CellType.FUEGO: marcar(cell)
-		#CellType.COMBUSTIBLE: marcarSICombustible(cell)
 
 # deja una marcar si las celdas vecinas
 # son inflamable o combustibles

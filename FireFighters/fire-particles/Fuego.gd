@@ -16,4 +16,10 @@ func _ready():
 func _on_Fuego_area_entered(area):
 	if area.get_name() == "Area2D":
 		global.apagar_fuego(self)
+		global._on_smoke()
 		#get_parent().queue_free()
+
+
+func _on_Humo_body_entered(body):
+	if body.get_name() == "Player":
+		global._on_smoke()
