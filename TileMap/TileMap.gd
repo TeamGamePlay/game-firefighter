@@ -20,7 +20,7 @@ func _ready():
 	crearFuegos()
 	
 func crearFuegos():
-	for c in get_used_cells():
+	for c in 550:
 		crearFuego()
 
 func crearFuego():
@@ -127,7 +127,11 @@ func crearCelFuego(cell):
 	set_cellv(cell,CellType.FUEGO)
 	celdasFuego.push_front(cell)
 	var v = map_to_world(cell)
-	fuegos.pop_front().global_position = Vector2(v.x+16,v.y+16)
+	if(fuegos.size() == 0):
+		var f = fuego.instance()
+		f.global_position = Vector2(v.x+16,v.y+16)
+	else:
+		fuegos.pop_front().global_position = Vector2(v.x+16,v.y+16)
 	cantFuego +=1
 	
 func _on_Timer_timeout():
