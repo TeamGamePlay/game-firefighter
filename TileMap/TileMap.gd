@@ -20,7 +20,7 @@ func _ready():
 	crearFuegos()
 	
 func crearFuegos():
-	for c in 1600:
+	for c in get_used_cells():
 		crearFuego()
 
 func crearFuego():
