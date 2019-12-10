@@ -41,6 +41,7 @@ func _on_reset():
 	
 func _on_recharge_water():
 	emit_signal("recharge", barraAgua)
+	
 func _on_recharge_oxigeno():
 	emit_signal("rechargeOxigen", barraOxigeno)
 	

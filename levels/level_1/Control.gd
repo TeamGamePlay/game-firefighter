@@ -27,13 +27,13 @@ func _ready():
 	
 func smoke(s):
 	if player.tieneMascara():
-		oxigeno -= 15
+		oxigeno -= 70
 		player.quitaOxigeno(oxigeno)
-		barraOxigeno.value = barraOxigeno.value - 15
+		barraOxigeno.value = barraOxigeno.value - 70
 	else:
-		oxigeno -= 30
+		oxigeno -= 120
 		player.quitaOxigeno(oxigeno)
-		barraOxigeno.value = barraOxigeno.value - 30
+		barraOxigeno.value = barraOxigeno.value - 120
 
 
 func fire(s):
