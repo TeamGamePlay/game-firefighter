@@ -55,7 +55,6 @@ func water(s):
 	 barraAgua.value = barraAgua.value - 0.07
 	 if barraAgua.value == 0:
 	    player.desactivarMatafuego()
-	    print("NO HAY MAS AAGUAAAAAAAA!!!!")
 			
 func recharge(s):
 	#Recarga de agua con la bomba.

@@ -197,24 +197,3 @@ func _on_EnvTimer_timeout():
 
 func _on_EnvTimer2_timeout():
 	pass
-	
-	#var areas = area.get_overlapping_areas()
-	#for area in areas:
-	#	if area.get_name() == "Fuego":
-	#		# toma los valores de los coleres que tiene actualmente
-	#		var r2 = $CaraBombero.get_modulate().r
-	#		var g2 = $CaraBombero.get_modulate().g - 0.15
-	#		var b2 = $CaraBombero.get_modulate().b
-	#		global._on_fire()
-	#		global._on_fire2()
-	#		if ! self.tieneMascara():
-	#			if(vida <= 0):
-					#$CaraBombero.set_modulate(Color(131, 52, 157, 255))
-					#var newGameOver = gameOver.instance()
-					#get_parent().add_child(newGameOver)
-	#				next_state = STATE.DEAD
-	#				$sonido/game_over.playing = true
-				   # Se pone morado cuando se queda sin vida
-	#			else:
-	#				$CaraBombero.set_modulate(Color(r2,g2,b2))
-	#				print("me quemo mabel!!!")
