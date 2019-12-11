@@ -130,7 +130,7 @@ position = Vector2( -9.58151, -9.68166 )
 shape = SubResource( 2 )
 
 [node name="EnvTimer" type="Timer" parent="."]
-wait_time = 5.0
+wait_time = 4.0
 autostart = true
 
 [node name="Matafuego" parent="." instance=ExtResource( 8 )]

@@ -17,7 +17,7 @@ var velocity = Vector2()
 var can_shoot = true
 var alive = true
 var oxigeno
-var vida
+var vida = 1000
 
 enum STATE {
 	RUN,
@@ -130,7 +130,7 @@ func disparar():
 	var is_firing = Input.is_action_pressed("ui_accept")
 	$Matafuego/Particles2D.emitting = is_firing
 	$Matafuego/Area2D/CollisionPolygon2D.disabled = not is_firing
-	$sonido/AudioStreamPlayer2D.playing = is_firing
+	$sonido/AudioStreamPlayer.playing = is_firing
 	if is_firing:
 		global._on_water()
 
@@ -174,32 +174,6 @@ func quitaVida(actVida):
 func _on_EnvTimer_timeout():
 	var areas = area.get_overlapping_areas()
 	for area in areas:
-		if area.get_name() == "Humo":
-			# toma los valores de los coleres que tiene actualmente
-			var r = $CaraBombero.get_modulate().r
-			var g = $CaraBombero.get_modulate().g - 0.15
-			var b = $CaraBombero.get_modulate().b
-			print(g)
-			global._on_smoke()
-			if(oxigeno <= 0):
-				if  ! self.tieneMascara():
-					# se pone azul cuando se queda sin oxigeno
-					#$CaraBombero.set_modulate(Color( 0, 0, 0.55, 1 ))
-					#var newGameOver = gameOver.instance()
-					#get_parent().add_child(newGameOver)
-					next_state = STATE.DEAD
-					$sonido/game_over.playing = true
-				else:
-					$mascara.region_enabled = true
-					global._on_recharge_oxigeno()
-			else:
-				$CaraBombero.set_modulate(Color(r,g,b))
-		#	print("Pierdo oxigeno!")
-			
-
-func _on_EnvTimer2_timeout():
-	var areas = area.get_overlapping_areas()
-	for area in areas:
 		if area.get_name() == "Fuego":
 			# toma los valores de los coleres que tiene actualmente
 			var r2 = $CaraBombero.get_modulate().r
@@ -207,14 +181,19 @@ func _on_EnvTimer2_timeout():
 			var b2 = $CaraBombero.get_modulate().b
 			global._on_fire()
 			global._on_fire2()
-			if ! self.tieneMascara():
-				if(vida <= 0):
-					#$CaraBombero.set_modulate(Color(131, 52, 157, 255))
-					#var newGameOver = gameOver.instance()
-					#get_parent().add_child(newGameOver)
+			global._on_smoke()
+			if(vida <= 0 or oxigeno <= 0):
+				if ! self.tieneMascara():
 					next_state = STATE.DEAD
 					$sonido/game_over.playing = true
-				   # Se pone morado cuando se queda sin vida
+				# Se pone morado cuando se queda sin vida
 				else:
-					$CaraBombero.set_modulate(Color(r2,g2,b2))
-					print("me quemo mabel!!!")
+					$mascara.region_enabled = true
+					global._on_info_out()
+					global._on_recharge_oxigeno()
+			else:
+				$CaraBombero.set_modulate(Color(r2,g2,b2))
+			
+
+func _on_EnvTimer2_timeout():
+	pass
