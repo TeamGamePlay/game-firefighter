@@ -25,7 +25,7 @@ func crearFuegos():
 
 func crearFuego():
 	var newFuego = fuego.instance()
-	newFuego.global_position = map_to_world(Vector2(-680,0))
+	newFuego.global_position = map_to_world(Vector2(-880,0))
 	fuegos.push_front(newFuego)
 	add_child(newFuego)
 	

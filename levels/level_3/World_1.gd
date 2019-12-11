@@ -11,6 +11,7 @@ onready var sigNivel = preload("res://Label/SiguienteNivel.tscn")
 onready var gameOver = preload("res://Label/GameOver.tscn")
 
 var world
+var numLevel
 var timer:Timer
 
 func _ready():
@@ -35,6 +36,7 @@ func gano():
 	else:
 		var newSigNivel = sigNivel.instance()
 		newSigNivel.world = get_parent()
+		#newSigNivel.text = "Next Level numLevel !!!"
 		self.add_child(newSigNivel)
 
 func gameOver():

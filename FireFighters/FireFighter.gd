@@ -130,7 +130,7 @@ func disparar():
 	var is_firing = Input.is_action_pressed("ui_accept")
 	$Matafuego/Particles2D.emitting = is_firing
 	$Matafuego/Area2D/CollisionPolygon2D.disabled = not is_firing
-	$sonido/AudioStreamPlayer2D.playing = is_firing
+	$sonido/AudioStreamPlayer.playing = is_firing
 	if is_firing:
 		global._on_water()
 
