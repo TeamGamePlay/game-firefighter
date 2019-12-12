@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://levels/level_3/World_1.gd" type="Script" id=1]
+[ext_resource path="res://levels/level_1/World_1.gd" type="Script" id=1]
 [ext_resource path="res://TileMap/TileMap.tscn" type="PackedScene" id=2]
 [ext_resource path="res://UI.tscn" type="PackedScene" id=3]
 [ext_resource path="res://FireFighters/fire-particles/Fuego.tscn" type="PackedScene" id=4]

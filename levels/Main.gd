@@ -9,7 +9,7 @@ func _ready():
 	$sonido/start_game.playing = true
 	level = level1.instance()
 	level.world = self
-	#level.numLevel = sigLevel
+	level.numLevel = sigLevel
 	sigLevel +=1
 	self.add_child(level)
 	global.connect("reset", self, "reload_reset")
@@ -28,9 +28,9 @@ func reload_reset():
 	
 func siguienteNivel():
 	var levelSig = level.sigLevel.instance()
+	levelSig.numLevel = sigLevel
 	levelRest = level.sigLevel
-	#levelRest.numLevel = sigLevel
-	#sigLevel +=1
+	sigLevel +=1
 	level.queue_free()
 	level = levelSig
 	self.add_child(level)

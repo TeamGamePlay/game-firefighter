@@ -13,11 +13,13 @@ onready var gameOver = preload("res://Label/GameOver.tscn")
 
 var world
 
+var numLevel
+
 func _ready():
 	canvas.player = player
 	canvas.matafuego = matafuego
 	tile.world = self
-	tile.modificarTimer(5)
+	
 	
 func _on_Fighter_shoot(water, _position, _direction):
 	var b = water.instance()
@@ -35,8 +37,9 @@ func gano():
 	else:
 		var newSigNivel = sigNivel.instance()
 		newSigNivel.world = get_parent()
+		newSigNivel.texto = "Next Level " + str(numLevel) + " !!!"
 		self.add_child(newSigNivel)
-		
+
 func gameOver():
 	var newGameOver = gameOver.instance()
 	self.add_child(newGameOver)

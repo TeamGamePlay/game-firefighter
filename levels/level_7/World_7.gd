@@ -12,6 +12,7 @@ onready var sigNivel = preload("res://Label/SiguienteNivel.tscn")
 onready var gameOver = preload("res://Label/GameOver.tscn")
 
 var world
+var numLevel
 
 func _ready():
 	canvas.player = player
@@ -34,6 +35,7 @@ func gano():
 	else:
 		var newSigNivel = sigNivel.instance()
 		newSigNivel.world = get_parent()
+		newSigNivel.texto = "Next Level " + str(numLevel) + " !!!"
 		self.add_child(newSigNivel)
 		
 func gameOver():

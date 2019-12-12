@@ -14,12 +14,12 @@ onready var labelPos = preload("res://util/LabelPos.tscn")
 onready var gameOver = preload("res://Label/GameOver.tscn")
 
 var world
+var numLevel
 
 func _ready():
 	canvas.player = player
 	canvas.matafuego = matafuego
 	tile.world = self
-	camara.player = player
 	
 func _on_Fighter_shoot(water, _position, _direction):
 	var b = water.instance()
@@ -30,23 +30,16 @@ func siguienteNivel():
 	world.siguienteNivel()
 
 func gano():
-	var label_pos = labelPos.instance()
 	if(sigLevel == null):
 		var newGanaste = ganaste.instance()
 		newGanaste.world = get_parent()
-		label_pos.add_child(newGanaste)
-		label_pos.position = camara.pos
-		camara.add_child(label_pos)
+		self.add_child(newGanaste)
 	else:
 		var newSigNivel = sigNivel.instance()
 		newSigNivel.world = get_parent()
-		label_pos.add_child(newSigNivel)
-		label_pos.position = camara.pos
-		camara.add_child(label_pos)
-
+		newSigNivel.texto = "Next Level " + str(numLevel) + " !!!"
+		self.add_child(newSigNivel)
+		
 func gameOver():
-	var label_pos = labelPos.instance()
 	var newGameOver = gameOver.instance()
-	label_pos.add_child(newGameOver)
-	label_pos.position = camara.pos
-	camara.add_child(label_pos)
+	self.add_child(newGameOver)
