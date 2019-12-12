@@ -12,7 +12,6 @@ onready var sigNivel = preload("res://Label/SiguienteNivel.tscn")
 onready var gameOver = preload("res://Label/GameOver.tscn")
 
 var world
-
 var numLevel
 
 func _ready():

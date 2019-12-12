@@ -20,6 +20,8 @@ func _ready():
 	canvas.player = player
 	canvas.matafuego = matafuego
 	tile.world = self
+	camara.player = player
+	tile.modificarTimer(6)
 	
 func _on_Fighter_shoot(water, _position, _direction):
 	var b = water.instance()
@@ -30,16 +32,24 @@ func siguienteNivel():
 	world.siguienteNivel()
 
 func gano():
+	var label_pos = labelPos.instance()
 	if(sigLevel == null):
 		var newGanaste = ganaste.instance()
 		newGanaste.world = get_parent()
-		self.add_child(newGanaste)
+		label_pos.add_child(newGanaste)
+		label_pos.position = camara.pos
+		camara.add_child(label_pos)
 	else:
 		var newSigNivel = sigNivel.instance()
 		newSigNivel.world = get_parent()
 		newSigNivel.texto = "Next Level " + str(numLevel) + " !!!"
-		self.add_child(newSigNivel)
+		label_pos.add_child(newSigNivel)
+		label_pos.position = camara.pos
+		camara.add_child(label_pos)
 		
 func gameOver():
+	var label_pos = labelPos.instance()
 	var newGameOver = gameOver.instance()
-	self.add_child(newGameOver)
+	label_pos.add_child(newGameOver)
+	label_pos.position = camara.pos
+	camara.add_child(label_pos)
