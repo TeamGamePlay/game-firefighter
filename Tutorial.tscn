@@ -1,0 +1,124 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Tutorial.gd" type="Script" id=1]
+[ext_resource path="res://assets/tutorial.png" type="Texture" id=2]
+
+[sub_resource type="AnimatedTexture" id=1]
+
+[node name="Tutorial" type="CanvasLayer"]
+script = ExtResource( 1 )
+
+[node name="Teclado" type="Sprite" parent="."]
+position = Vector2( 509.44, 224.088 )
+scale = Vector2( 3.39125, 2.61021 )
+texture = ExtResource( 2 )
+
+[node name="Mira" type="Label" parent="."]
+margin_left = 691.364
+margin_top = 292.714
+margin_right = 793.364
+margin_bottom = 323.714
+rect_scale = Vector2( 3, 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "Mira
+"
+align = 1
+valign = 1
+
+[node name="Arriba" type="Label" parent="."]
+margin_left = 147.0
+margin_top = -77.0
+margin_right = 269.0
+margin_bottom = 8.0
+rect_scale = Vector2( 3, 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "Arriba
+"
+align = 1
+valign = 1
+
+[node name="Abajo" type="Label" parent="."]
+margin_left = 158.531
+margin_top = 309.405
+margin_right = 263.531
+margin_bottom = 398.405
+rect_scale = Vector2( 3, 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "Abajo
+"
+align = 1
+valign = 1
+
+[node name="Derecha" type="Label" parent="."]
+margin_left = 463.141
+margin_top = 171.76
+margin_right = 516.141
+margin_bottom = 211.76
+rect_scale = Vector2( 3, 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "Derecha
+"
+align = 1
+valign = 1
+
+[node name="Izquierdo" type="Label" parent="."]
+margin_left = 3.56922
+margin_top = 134.772
+margin_right = 63.5692
+margin_bottom = 200.772
+rect_scale = Vector2( 3, 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "Izquierda
+"
+align = 1
+valign = 1
+
+[node name="Matafuego" type="Label" parent="."]
+margin_left = 622.414
+margin_top = 92.6363
+margin_right = 710.414
+margin_bottom = 123.636
+rect_scale = Vector2( 3, 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "Matafuego
+"
+align = 1
+valign = 1
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 11.532, 778.051 )
+rotation = -3.14159
+scale = Vector2( 1024.08, -327.129 )
+texture = SubResource( 1 )
+
+[node name="Informacion" type="Label" parent="."]
+margin_left = 8.0
+margin_top = 449.0
+margin_right = 348.0
+margin_bottom = 556.0
+rect_scale = Vector2( 3, 3 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "W -> Mover Arriba
+S -> Mover Abajo
+A -> Mover Izquierda
+D-> Mover Derecha
+MataFuego -> Enciende el Matafuego
+Mira -> Apunta a que lugar lanza el Matafuego"
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

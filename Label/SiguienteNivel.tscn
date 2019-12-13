@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Label/SiguienteNivel.gd" type="Script" id=1]
+
+[sub_resource type="StyleBoxEmpty" id=1]
+
+[node name="SiguienteNivel" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_scale = Vector2( 1.02136, 1.0008 )
+script = ExtResource( 1 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = 178.316
+margin_top = 95.1823
+margin_right = 299.316
+margin_bottom = 109.182
+rect_scale = Vector2( 6, 13.673 )
+custom_styles/normal = SubResource( 1 )
+custom_colors/font_color = Color( 0.0588235, 0.972549, 0.286275, 1 )
+custom_colors/font_color_shadow = Color( 0.952941, 0.972549, 0.701961, 1 )
+text = "NEXT LEVEL!!!"
+align = 1
+valign = 1
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

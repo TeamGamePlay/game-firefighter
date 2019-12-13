@@ -18,7 +18,6 @@ region_rect = Rect2( 50, 0, 32, 32 )
 shape = SubResource( 1 )
 
 [node name="Sprite2" type="Sprite" parent="."]
-editor/display_folded = true
 position = Vector2( 90, 0 )
 texture = ExtResource( 1 )
 region_enabled = true

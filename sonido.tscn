@@ -1,0 +1,28 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://sonidos/water-sound-effect.wav" type="AudioStream" id=1]
+[ext_resource path="res://sonidos/game_over.wav" type="AudioStream" id=2]
+[ext_resource path="res://sonidos/sonido-de-sonic.wav" type="AudioStream" id=3]
+[ext_resource path="res://sonidos/sonido_llave.wav" type="AudioStream" id=4]
+[ext_resource path="res://sonidos/sonido-puerta.wav" type="AudioStream" id=5]
+[ext_resource path="res://sonidos/musica-alegre-instrumentale-pop-divertida-musica-de-fondo-para-video-juegos-ninos-comerciales.wav" type="AudioStream" id=6]
+
+[node name="sonido" type="Node"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 1 )
+
+[node name="game_over" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+
+[node name="tomar_item" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+
+[node name="tomar_llave" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+
+[node name="abrir_puerta" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+
+[node name="start_game" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
